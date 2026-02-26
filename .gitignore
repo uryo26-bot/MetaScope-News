@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Vector store
+*.faiss
+*.pkl
+vectorstore/
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ===== ETL generated data =====
+backend/data/importdata/extractedData_AFpercentage/
+backend/data/importdata/extractedData_BFpercentage/
+
+# ===== Generated CSV (reproducible) =====
+backend/data/importdata/*_import.csv
+
+#Excelファイル
+*.xlsx
+
+

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+numpy
+langchain
+langchain-community
+faiss-cpu
+openai
+langchain_openai

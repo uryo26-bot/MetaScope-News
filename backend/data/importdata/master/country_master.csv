@@ -1,0 +1,103 @@
+country_code,country_ja,country_en,region,continent
+UNK,不明,Unknown,Unspecified,Other
+CHN,中華人民共和国,China,East Asia,Asia
+SGP,シンガポール,Singapore,Southeast Asia,Asia
+MYS,マレーシア,Malaysia,Southeast Asia,Asia
+BRN,ブルネイ,Brunei,Southeast Asia,Asia
+IDN,インドネシア,Indonesia,Southeast Asia,Asia
+QAT,カタール,Qatar,Middle East,Asia
+OMN,オマーン,Oman,Middle East,Asia
+ARE,アラブ首長国連邦,United Arab Emirates,Middle East,Asia
+RUS,ロシア,Russia,Eurasia,Europe/Asia
+CAN,カナダ,Canada,North America,North America
+USA,アメリカ合衆国,United States,North America,North America
+PER,ペルー,Peru,South America,South America
+NGA,ナイジェリア,Nigeria,West Africa,Africa
+GNQ,赤道ギニア,Equatorial Guinea,Central Africa,Africa
+MOZ,モザンビーク,Mozambique,Southern Africa,Africa
+AUS,オーストラリア,Australia,Oceania,Oceania
+PNG,パプアニューギニア,Papua New Guinea,Oceania,Oceania
+TTO,トリニダード・トバゴ,Trinidad and Tobago,Caribbean,North America
+PER,ペルー,Peru,South America,South America
+DZA,アルジェリア,Algeria,North Africa,Africa
+CMR,カメルーン,Cameroon,Central Africa,Africa
+KOR,大韓民国,South Korea,East Asia,Asia
+TUR,トルコ,Turkey,Western Asia,Asia
+EGY,エジプト,Egypt,North Africa,Africa
+AGO,アンゴラ,Angola,Middle Africa,Africa
+FRA,フランス,France,Western Europe,Europe
+THA,タイ,Thailand,Southeast Asia,Asia
+GBR,英国,United Kingdom,Western Europe,Europe
+NOR,ノルウェー,Norway,Northern Europe,Europe
+NLD,オランダ,Netherlands,Western Europe,Europe
+YEM,イエメン,Yemen,Middle East,Asia
+BEL,ベルギー,Belgium,Western Europe,Europe
+ESP,スペイン,Spain,Southern Europe,Europe
+BRA,ブラジル,Brazil,South America,South America
+PHL,フィリピン,Philippines,Southeast Asia,Asia
+ZAF,南アフリカ共和国,South Africa,Southern Africa,Africa
+MNG,モンゴル,Mongolia,East Asia,Asia
+COL,コロンビア,Colombia,South America,South America
+POL,ポーランド,Poland,Eastern Europe,Europe
+PAK,パキスタン,Pakistan,South Asia,Asia
+IRL,アイルランド,Ireland,Western Europe,Europe
+DEU,ドイツ,Germany,Western Europe,Europe
+TWN,台湾,Taiwan,East Asia,Asia
+HKG,香港,Hong Kong,East Asia,Asia
+ISR,イスラエル,Israel,Middle East,Asia
+SLV,エルサルバドル,El Salvador,Central America,North America
+DNK,デンマーク,Denmark,Northern Europe,Europe
+PLW,パラオ,Palau,Micronesia,Oceania
+KWT,クウェート,Kuwait,Middle East,Asia
+SWE,スウェーデン,Sweden,Northern Europe,Europe
+CHE,スイス,Switzerland,Western Europe,Europe
+ITA,イタリア,Italy,Southern Europe,Europe
+CRI,コスタリカ,Costa Rica,Central America,North America
+UKR,ウクライナ,Ukraine,Eastern Europe,Europe
+VNM,ベトナム,Vietnam,Southeast Asia,Asia
+LUX,ルクセンブルク,Luxembourg,Western Europe,Europe
+NER,ニジェール,Niger,West Africa,Africa
+HUN,ハンガリー,Hungary,Eastern Europe,Europe
+TUR,トルコ,Turkey,Western Asia,Asia
+GRC,ギリシャ,Greece,Southern Europe,Europe
+IND,インド,India,South Asia,Asia
+AUT,オーストリア,Austria,Western Europe,Europe
+HRV,クロアチア,Croatia,Southern Europe,Europe
+FIN,フィンランド,Finland,Northern Europe,Europe
+MEX,メキシコ,Mexico,North America,North America
+SAU,サウジアラビア,Saudi Arabia,Middle East,Asia
+NCL,ニューカレドニア（仏）,New Caledonia,Melanesia,Oceania
+BGD,バングラデシュ,Bangladesh,South Asia,Asia
+PAN,パナマ,Panama,Central America,North America
+MHL,マーシャル,Marshall Islands,Micronesia,Oceania
+MUS,モーリシャス,Mauritius,Eastern Africa,Africa
+LVA,ラトビア,Latvia,Northern Europe,Europe
+KAZ,カザフスタン,Kazakhstan,Central Asia,Asia
+CYM,ケイマン諸島（英）,Cayman Islands,Caribbean,North America
+CZE,チェコ,Czech Republic,Central Europe,Europe
+CHL,チリ,Chile,South America,South America
+PRY,パラグアイ,Paraguay,South America,South America
+BGR,ブルガリア,Bulgaria,Eastern Europe,Europe
+MLT,マルタ,Malta,Southern Europe,Europe
+URY,ウルグアイ,Uruguay,South America,South America
+BHR,バーレーン,Bahrain,Middle East,Asia
+MDV,モルディブ,Maldives,South Asia,Asia
+FSM,ミクロネシア,Micronesia,Micronesia,Oceania
+GUM,グアム（米）,Guam,Micronesia,Oceania
+DOM,ドミニカ共和国,Dominican Republic,Caribbean,North America
+ANT,蘭領アンティール,Netherlands Antilles,Caribbean,North America
+SWZ,エスワティニ,Eswatini,Southern Africa,Africa
+GAB,ガボン,Gabon,Central Africa,Africa
+MAC,マカオ,Macao,East Asia,Asia
+NZL,ニュージーランド,New Zealand,Australia and New Zealand,Oceania
+IRQ,イラク,Iraq,Middle East,Asia
+COG,コンゴ共和国,Republic of the Congo,Central Africa,Africa
+SUR,スリナム,Suriname,South America,South America
+ARG,アルゼンチン,Argentina,South America,South America
+LKA,スリランカ,Sri Lanka,South Asia,Asia
+EST,エストニア,Estonia,Northern Europe,Europe
+TZA,タンザニア,Tanzania,Eastern Africa,Africa
+VUT,バヌアツ,Vanuatu,Melanesia,Oceania
+LBY,リビア,Libya,North Africa,Africa
+
+

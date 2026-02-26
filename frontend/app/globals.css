@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: rgb(240, 237, 236);
+  --foreground: rgb(240, 237, 236);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(240, 237, 236);
+    --foreground: ;
+  }
+}
+
+html, body {
+  height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-comfortaa), ui-rounded, sans-serif;
+}
+
+header, footer {
+  background: var(--background)
+}
+
+/* ヘッダー用フォント（Comfortaa） */
+.font-header {
+  font-family: var(--font-comfortaa), ui-rounded, sans-serif;
+}
+
+.recharts-wrapper {
+  background: rgb(240, 237, 236);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.recharts-surface {
+  stroke: none !important;
+  stroke-width: 0 !important;
+  background-color: rgb(240, 237, 236);
+}
+
+.recharts-background {
+  stroke: none !important;   /* 枠線を消す */
+  fill: rgb(240, 237, 236) !important; /* 背景色を統一 */
+}
+
+.recharts-wapper rect {
+  stroke: none !important;
+}
+
+svg.recharts-surface {
+  stroke: none !important;
+  stroke-width: 0 !important;
+  border: none !important;
+  outline: none !important;
+  background-color: rgb(240, 237, 236);
+}
+
+svg.recharts-surface > rect {
+  stroke: none !important;
+  fill: rgb(240, 237, 236) !important;
+}
+
+.recharts-surface rect {
+  stroke: none !important;
+  fill:rgb(240, 237, 236);
+}
+
+.recharts-bar-background path {
+  stroke: none !important;
+  fill: none !important;
+}
+
+svg:focus {
+  outline: none !important;
+}
+
+/* ふりがな表示時の余白を抑える（年度選択などインライン表記用） */
+.furigana-text {
+  line-height: 1.2;
+  display: inline;
+}
+.furigana-text ruby {
+  ruby-position: over;
+  ruby-align: center;
+  line-height: 1.2;
+}
+.furigana-text rt {
+  font-size: 0.5em;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+
+
