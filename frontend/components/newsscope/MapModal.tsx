@@ -1,20 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import dynamic from "next/dynamic";
+import { useState, useEffect, useCallback } from "react";
 import { MapMakingStickFigure } from "./MapMakingStickFigure";
-
-const ComposableMap = dynamic(() => import("react-simple-maps").then((m) => m.ComposableMap), {
-  ssr: false,
-});
-const Geographies = dynamic(() => import("react-simple-maps").then((m) => m.Geographies), {
-  ssr: false,
-});
-const Geography = dynamic(() => import("react-simple-maps").then((m) => m.Geography), {
-  ssr: false,
-});
-
-const GEO_URL = "/api/countries-geojson";
 
 type MapModalProps = {
   isOpen: boolean;
@@ -38,77 +25,6 @@ type ExplainDetailResponse = {
   explanation: string;
   countries: CountryItem[];
 };
-
-/** API国名 → GeoJSONでマッチさせる名前の候補 */
-const COUNTRY_MATCH_NAMES: Record<string, string[]> = {
-  "United States": ["united states of america", "united states"],
-  Russia: ["russian federation", "russia"],
-  UK: ["united kingdom"],
-  "South Korea": ["korea, republic of", "republic of korea"],
-  "North Korea": ["korea, north", "dem. rep. korea"],
-  UAE: ["united arab emirates"],
-};
-
-function normalize(s: string): string {
-  return s.toLowerCase().replace(/\s+/g, " ").trim();
-}
-
-function geoMatchesCountry(
-  geoProps: { NAME?: string; ADMIN?: string; name?: string },
-  country: CountryItem
-): boolean {
-  const geoNorm = normalize(geoProps.NAME ?? geoProps.ADMIN ?? geoProps.name ?? "");
-  const candidates = COUNTRY_MATCH_NAMES[country.name]
-    ? [normalize(country.name), ...COUNTRY_MATCH_NAMES[country.name].map(normalize)]
-    : [normalize(country.name)];
-  return candidates.some(
-    (cn) => geoNorm === cn || geoNorm.includes(cn) || cn.includes(geoNorm)
-  );
-}
-
-function getCountryForGeo(
-  geoProps: { NAME?: string; ADMIN?: string; name?: string },
-  countries: CountryItem[]
-): CountryItem | null {
-  const geoNorm = normalize(geoProps.NAME ?? geoProps.ADMIN ?? geoProps.name ?? "");
-  for (const c of countries) {
-    const candidates = COUNTRY_MATCH_NAMES[c.name]
-      ? [normalize(c.name), ...COUNTRY_MATCH_NAMES[c.name].map(normalize)]
-      : [normalize(c.name)];
-    const matched = candidates.some(
-      (cn) => geoNorm === cn || geoNorm.includes(cn) || cn.includes(geoNorm)
-    );
-    if (matched) return c;
-  }
-  return null;
-}
-
-function getCountryFill(
-  geoProps: { NAME?: string; ADMIN?: string; name?: string },
-  countries: CountryItem[],
-  hoveredCountry: CountryItem | null
-): { fill: string; opacity: number } {
-  const geoNorm = normalize(geoProps.NAME ?? geoProps.ADMIN ?? geoProps.name ?? "");
-  const baseFill = "#3f3f46";
-
-  if (hoveredCountry && geoMatchesCountry(geoProps, hoveredCountry)) {
-    return { fill: getColorByType(hoveredCountry.type), opacity: 1 };
-  }
-
-  for (const c of countries) {
-    const candidates = COUNTRY_MATCH_NAMES[c.name]
-      ? [normalize(c.name), ...COUNTRY_MATCH_NAMES[c.name].map(normalize)]
-      : [normalize(c.name)];
-    const matched = candidates.some(
-      (cn) => geoNorm === cn || geoNorm.includes(cn) || cn.includes(geoNorm)
-    );
-    if (matched) {
-      const opacity = hoveredCountry ? 0.4 : 1;
-      return { fill: getColorByType(c.type), opacity };
-    }
-  }
-  return { fill: baseFill, opacity: hoveredCountry ? 0.5 : 1 };
-}
 
 function getColorByType(type: CountryItem["type"]): string {
   switch (type) {
@@ -146,37 +62,13 @@ export function MapModal({
         type: c.type as CountryItem["type"],
       }))
     : countries;
-  /** 親のバックグラウンド取得中、またはモーダル自身の取得中（未キャッシュ時）*/
   const showMapMakingLoading = !cachedData && (isLoading || loading);
-  const [hoveredCountry, setHoveredCountry] = useState<CountryItem | null>(null);
-  const [tooltip, setTooltip] = useState<{
-    x: number;
-    y: number;
-    country: CountryItem;
-    geoName: string;
-  } | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [mapSize, setMapSize] = useState({ width: 720, height: 560 });
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const update = () => {
-      setMapSize({ width: el.clientWidth || 720, height: el.clientHeight || 560 });
-    };
-    update();
-    const ro = new ResizeObserver(update);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [isOpen, loading, displayCountries.length]);
 
   const fetchDetail = useCallback(async () => {
     if (!content || !news || cachedData) return;
     setLoading(true);
     setExplanation("");
     setCountries([]);
-    setHoveredCountry(null);
-    setTooltip(null);
     try {
       const res = await fetch("/api/explain-detail", {
         method: "POST",
@@ -255,131 +147,36 @@ export function MapModal({
               <p className="text-sm leading-relaxed text-zinc-300">{displayExplanation}</p>
             ) : null}
           </div>
-
-          {/* 国リスト */}
-          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
-            {!showMapMakingLoading && !loading && displayCountries.length > 0 && (
-              <div className="space-y-2">
-                <p className="mb-2 text-xs font-medium text-zinc-500">関連する国</p>
-                {displayCountries.map((c) => (
-                  <div
-                    key={`${c.name}-${c.role}`}
-                    onMouseEnter={() => setHoveredCountry(c)}
-                    onMouseLeave={() => setHoveredCountry(null)}
-                    className="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-800"
-                  >
-                    <span
-                      className="h-3 w-3 shrink-0 rounded-full"
-                      style={{ backgroundColor: getColorByType(c.type) }}
-                      aria-hidden
-                    />
-                    <div className="min-w-0 flex-1">
-                      <span className="block truncate text-sm font-medium text-zinc-200">
-                        {c.name}
-                      </span>
-                      <span className="block text-xs text-zinc-400">{c.role}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
 
-        {/* 右側 60% - 地図 */}
-        <div
-          ref={containerRef}
-          className="relative flex min-h-0 w-[60%] flex-col bg-zinc-800"
-        >
-          {!showMapMakingLoading && !loading && displayCountries.length > 0 ? (
-            <div className="relative h-full w-full">
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={{ scale: 140, center: [20, 20] }}
-                width={mapSize.width}
-                height={mapSize.height}
-                style={{ width: "100%", height: "100%" }}
-                className="h-full w-full"
-              >
-                <Geographies geography={GEO_URL}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => {
-                      const props = geo.properties as { NAME?: string; ADMIN?: string };
-                      const country = getCountryForGeo(props, displayCountries);
-                      const { fill, opacity } = getCountryFill(props, displayCountries, hoveredCountry);
-                      const isHovered = hoveredCountry && country && hoveredCountry.name === country.name;
-
-                      return (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill={fill}
-                          fillOpacity={opacity}
-                          stroke={isHovered ? "#fbbf24" : "#52525b"}
-                          strokeWidth={isHovered ? 1.5 : 0.5}
-                          style={{
-                            default: { outline: "none", cursor: country ? "pointer" : "default" },
-                            hover: { outline: "none", opacity: 1 },
-                            pressed: { outline: "none" },
-                          }}
-                          onMouseEnter={(e) => {
-                            if (country && containerRef.current) {
-                              const rect = containerRef.current.getBoundingClientRect();
-                              setTooltip({
-                                x: e.clientX - rect.left,
-                                y: e.clientY - rect.top,
-                                country,
-                                geoName: props.NAME ?? props.ADMIN ?? country.name,
-                              });
-                            }
-                          }}
-                          onMouseMove={(e) => {
-                            if (country && containerRef.current) {
-                              const rect = containerRef.current.getBoundingClientRect();
-                              setTooltip((prev) =>
-                                prev
-                                  ? {
-                                      ...prev,
-                                      x: e.clientX - rect.left,
-                                      y: e.clientY - rect.top,
-                                    }
-                                  : null
-                              );
-                            }
-                          }}
-                          onMouseLeave={() => setTooltip(null)}
-                        />
-                      );
-                    })
-                  }
-                </Geographies>
-              </ComposableMap>
-
-              {/* ツールチップ */}
-              {tooltip && (
-                <div
-                  className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full"
-                  style={{
-                    left: tooltip.x,
-                    top: tooltip.y,
-                    marginTop: -8,
-                  }}
-                >
-                  <div className="rounded-lg border border-zinc-600 bg-zinc-800 px-3 py-2 shadow-lg">
-                    <p className="text-sm font-medium text-zinc-100">{tooltip.geoName}</p>
-                    <p className="text-xs text-zinc-400">{tooltip.country.role}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          ) : !showMapMakingLoading && !loading && displayCountries.length === 0 && displayExplanation ? (
-            <div className="flex h-full items-center justify-center">
-              <p className="text-sm text-zinc-500">地図に表示する国がありません</p>
-            </div>
-          ) : showMapMakingLoading ? (
-            <div className="flex h-full flex-col items-center justify-center gap-4">
+        {/* 右側 60% - 関連する国リスト */}
+        <div className="relative flex min-h-0 w-[60%] flex-col overflow-y-auto bg-zinc-800 p-4">
+          {showMapMakingLoading ? (
+            <div className="flex flex-1 flex-col items-center justify-center gap-4">
               <MapMakingStickFigure />
               <p className="text-sm text-zinc-400">地図で整理中</p>
+            </div>
+          ) : !loading && displayCountries.length > 0 ? (
+            <div className="countries-list space-y-2">
+              <p className="mb-3 text-xs font-medium text-zinc-500">関連する国</p>
+              {displayCountries.map((country) => (
+                <div
+                  key={`${country.name}-${country.role}`}
+                  className="country-item flex items-center gap-2 rounded-lg px-3 py-2 transition-colors hover:bg-zinc-700"
+                >
+                  <span
+                    className={`dot ${country.type} h-3 w-3 shrink-0 rounded-full`}
+                    style={{ backgroundColor: getColorByType(country.type) }}
+                    aria-hidden
+                  />
+                  <span className="name truncate text-sm font-medium text-zinc-200">{country.name}</span>
+                  <span className="role text-xs text-zinc-400">{country.role}</span>
+                </div>
+              ))}
+            </div>
+          ) : !loading && displayCountries.length === 0 && displayExplanation ? (
+            <div className="flex flex-1 items-center justify-center">
+              <p className="text-sm text-zinc-500">関連する国がありません</p>
             </div>
           ) : null}
         </div>
