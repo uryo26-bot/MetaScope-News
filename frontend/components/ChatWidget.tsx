@@ -22,7 +22,7 @@ export default function ChatWidget() {
 
   try {
     const res = await fetch(
-      `http://localhost:8000/rag?query=${encodeURIComponent(userText)}`
+      `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/rag?query=${encodeURIComponent(userText)}`
     );
 
     if (!res.ok) throw new Error("API error");
