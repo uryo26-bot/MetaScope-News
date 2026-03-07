@@ -784,7 +784,7 @@ export function PortChartClient() {
       const countryLabelLayers = ["country-label", "country-label-sm", "place-label-country"];
       const iso2Codes =
         chart && id && shareDataTop5.length > 0
-          ? shareDataTop5.map((d) => getIso2FromIso3(d.country_code)).filter((c): c is string => !!c)
+          ? shareDataTop5.map((d) => getIso2FromIso3(d.country_code ?? '')).filter((c): c is string => !!c)
           : null;
       const filter = iso2Codes?.length
         ? (["in", ["get", "iso_3166_1"], ["literal", iso2Codes]] as mapboxgl.FilterSpecification)
