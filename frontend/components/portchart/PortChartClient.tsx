@@ -822,7 +822,7 @@ export function PortChartClient() {
             "rgba(42,58,78,0.7)",
           ]) as mapboxgl.Expression;
 
-      const fillColorMatch: mapboxgl.Expression =
+      const fillColorMatch =
         countryCodes.length > 0
           ? selectedCode
             ? ["match", ["get", "ISO_A3"], ...shareDataTop5.flatMap((d) => [d.country_code!, d.country_code === selectedCode ? getSelectedFillColorByTier(d.value, d.country_code, themeTiers) : DESELECTED_FILL]), DEFAULT_FILL]
