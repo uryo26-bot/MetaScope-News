@@ -1092,7 +1092,7 @@ export function PortChartClient() {
       100,
       4.8,
     ] as mapboxgl.Expression;
-    const fillColorMatch: mapboxgl.Expression =
+    const fillColorMatch =
       countryCodes.length > 0
         ? ["match", ["get", "ISO_A3"], ...shareDataTop5.flatMap((d) => [d.country_code!, getFillColorByTier(d.value, d.country_code, chart && id ? getThemeTiers(chart, id) : undefined)]), DEFAULT_FILL]
         : DEFAULT_FILL;
