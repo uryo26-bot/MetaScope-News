@@ -799,7 +799,6 @@ export function PortChartClient() {
     if (map.getSource("countries")) {
       (map.getSource("countries") as mapboxgl.GeoJSONSource).setData(countriesGeojson as GeoJSON.GeoJSON);
       const selectedCode = selectedCountry?.code ?? null;
-      const transition = (PORTCHART_V1 ? { duration: 0 } : { duration: FOCUS_TRANSITION_MS }) as any;
       const themeTiers = chart && id ? getThemeTiers(chart, id) : undefined;
       const accentColor = chart && id ? getChartItemFillColor(chart, id) : ACCENT_NAVY;
       const flowLineGradient = (chart && id
@@ -844,11 +843,11 @@ export function PortChartClient() {
         ? (["match", ["get", "ISO_A3"], selectedCode, "#94a3b8", "#eaecef"] as mapboxgl.Expression)
         : "#e2e6ea";
 
-      map.setPaintProperty("countries-fill", "fill-color", fillColorMatch, transition);
-      map.setPaintProperty("countries-fill", "fill-opacity", fillOpacityValue, transition);
+      map.setPaintProperty("countries-fill", "fill-color", fillColorMatch as any);
+      map.setPaintProperty("countries-fill", "fill-opacity", fillOpacityValue as any);
       if (map.getLayer("countries-outline")) {
-        map.setPaintProperty("countries-outline", "line-width", outlineWidth, transition);
-        map.setPaintProperty("countries-outline", "line-color", outlineColor, transition);
+        map.setPaintProperty("countries-outline", "line-width", outlineWidth as any);
+        map.setPaintProperty("countries-outline", "line-color", outlineColor as any);
       }
       if (!map.getSource("selected-country")) {
         map.addSource("selected-country", {
