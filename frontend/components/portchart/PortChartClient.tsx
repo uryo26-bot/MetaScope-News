@@ -560,15 +560,15 @@ export function PortChartClient() {
     animationTimeoutsRef.current = [];
     setAnimationStep(0);
     setShowProductionLocations(false);
-    const t1 = window.setTimeout(() => {
+    const t1 = setTimeout(() => {
       setAnimationStep(1);
       animationHasRunRef.current = true;
-    }, 500) as ReturnType<typeof setTimeout>;
-    const t2 = window.setTimeout(() => setAnimationStep(2), 1000) as ReturnType<typeof setTimeout>;
-    const t3 = window.setTimeout(() => {
+    }, 500);
+    const t2 = setTimeout(() => setAnimationStep(2), 1000);
+    const t3 = setTimeout(() => {
       setAnimationStep(3);
       setShowProductionLocations(true);
-    }, 1500) as ReturnType<typeof setTimeout>;
+    }, 1500);
     animationTimeoutsRef.current = [t1, t2, t3];
   }, []);
 
