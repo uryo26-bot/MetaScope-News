@@ -1101,7 +1101,7 @@ export function PortChartClient() {
       type: "fill",
       source: "countries",
       paint: {
-        "fill-color": fillColorMatch,
+        "fill-color": fillColorMatch as any,
         "fill-opacity": 0.85,
       },
     });
