@@ -42,7 +42,7 @@ export function ShareChart({ title, data, action }: ShareChartProps) {
               outerRadius="75%"
               paddingAngle={1}
               startAngle={90}
-              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`}
+              label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(1)}%`}
               labelLine={{ stroke: "#64748b", strokeWidth: 1 }}
             >
               {chartData.map((_, i) => (
