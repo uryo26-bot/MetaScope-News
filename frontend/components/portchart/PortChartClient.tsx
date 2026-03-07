@@ -1357,7 +1357,8 @@ export function PortChartClient() {
   // 地形表示時: 選択中の資源に応じて選択国内の鉱山マーク・鉱山名を表示 / 非表示時に削除（世界地図UIでは鉱山を表示しない）
   useEffect(() => {
     const map = mapRef.current;
-    if (!mapReady || !map || !map.getSource("countries")) return;
+    if (!map) return;
+    if (!mapReady || !map.getSource("countries")) return;
     const showMines = false; // 世界地図UIでは鉱山・精錬拠点を表示しない
     if (showMines && selectedCountry) {
       const mines = getMinesByResourceAndCountry(id, selectedCountry.code);
@@ -1430,7 +1431,6 @@ export function PortChartClient() {
         type: "FeatureCollection",
         features: hubFeatures,
       };
-      if (!map) return;
       if (map.getSource("refining-hubs")) {
         (map.getSource("refining-hubs") as mapboxgl.GeoJSONSource).setData(hubGeojson as GeoJSON.GeoJSON);
       } else {
