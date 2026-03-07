@@ -844,7 +844,7 @@ export function PortChartClient() {
         ? (["match", ["get", "ISO_A3"], selectedCode, "#94a3b8", "#eaecef"] as mapboxgl.Expression)
         : "#e2e6ea";
 
-      map.setPaintProperty("countries-fill", "fill-color", fillColorMatch, transition);
+      map.setPaintProperty("countries-fill", "fill-color", fillColorMatch as any, transition);
       map.setPaintProperty("countries-fill", "fill-opacity", fillOpacityValue, transition);
       if (map.getLayer("countries-outline")) {
         map.setPaintProperty("countries-outline", "line-width", outlineWidth, transition);
