@@ -1431,10 +1431,10 @@ export function PortChartClient() {
         type: "FeatureCollection",
         features: hubFeatures,
       };
-      if (map.getSource("refining-hubs")) {
-        (map.getSource("refining-hubs") as mapboxgl.GeoJSONSource).setData(hubGeojson as GeoJSON.GeoJSON);
+      if (map!.getSource("refining-hubs")) {
+        (map!.getSource("refining-hubs") as mapboxgl.GeoJSONSource).setData(hubGeojson as GeoJSON.GeoJSON);
       } else {
-        map.addSource("refining-hubs", { type: "geojson", data: hubGeojson as GeoJSON.GeoJSON });
+        map!.addSource("refining-hubs", { type: "geojson", data: hubGeojson as GeoJSON.GeoJSON });
         map.addLayer({
           id: "refining-hubs-circles",
           type: "circle",
