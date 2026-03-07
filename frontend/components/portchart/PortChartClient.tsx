@@ -1430,6 +1430,7 @@ export function PortChartClient() {
         type: "FeatureCollection",
         features: hubFeatures,
       };
+      if (!map) return;
       if (map.getSource("refining-hubs")) {
         (map.getSource("refining-hubs") as mapboxgl.GeoJSONSource).setData(hubGeojson as GeoJSON.GeoJSON);
       } else {
