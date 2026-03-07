@@ -947,7 +947,7 @@ export function PortChartClient() {
           map.setLayoutProperty("flow-to-japan-lines", "line-join", "round");
           map.setPaintProperty("flow-to-japan-lines", "line-gradient", flowLineGradient);
           map.setPaintProperty("flow-to-japan-lines", "line-width", flowWidthByValue);
-          map.setPaintProperty("flow-to-japan-lines", "line-opacity", flowOpacityByValue, showFlowLayer ? { duration: 400 } : undefined);
+          map.setPaintProperty("flow-to-japan-lines", "line-opacity", flowOpacityByValue as any);
         }
       } else if (flowGeoJSON.features.length > 0) {
         map.addSource("flow-to-japan", { type: "geojson", data: flowGeoJSON as GeoJSON.GeoJSON, lineMetrics: true });
