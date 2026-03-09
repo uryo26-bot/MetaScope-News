@@ -74,7 +74,6 @@ function TickWithFlag({
     <g transform={`translate(${x},${y})`}>
       <foreignObject x={-150} y={-10} width={145} height={24}>
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             display: "flex",
             alignItems: "center",
