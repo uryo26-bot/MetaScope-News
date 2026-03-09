@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { Year, EnergyType } from "../types/types";
 import { ENERGY_COLORS, ENERGY_NAMES, YEAR_STATS } from "../constants/energyDetails";
 import { YearPicker } from "./YearPicker";
@@ -56,16 +56,25 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
   // 年度別統計を取得
   const yearStats = YEAR_STATS[selectedYear];
 
+  // 詳細カードへのスクロール用
+  const detailCardRef = useRef<HTMLDivElement>(null);
+
   // 棒グラフのクリックハンドラ
   const handleBarClick = (entry: { energy: string }) => {
     setSelectedEnergyName(entry.energy);
   };
 
+  // 電源選択時に詳細カードへスクロール
+  useEffect(() => {
+    if (selectedEnergyType && detailCardRef.current) {
+      detailCardRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [selectedEnergyType]);
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-green-50 p-8">
-      {/* 年度選択と電力情報 */}
-      <div className="flex items-center justify-between mb-8">
-        <YearPicker selectedYear={selectedYear} onYearChange={setSelectedYear} furiganaEnabled={furiganaEnabled} />
+      {/* 電力情報 */}
+      <div className="flex justify-end mb-8">
         <PowerInfoModal
           consumption={yearStats.consumption}
           generation={yearStats.generation}
@@ -74,13 +83,14 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
         />
       </div>
 
-      {/* タイトル */}
-      <h1 className="text-4xl font-bold mb-8 text-center">
-        <FuriganaText enabled={furiganaEnabled}>{selectedYear}年 日本の電源割合</FuriganaText>
-      </h1>
-
       {/* 棒グラフ */}
       <div className="bg-white rounded-xl p-8 border-4 border-blue-500 shadow-lg mb-8">
+        {/* タイトル（年度スライダーの上） */}
+        <h1 className="text-4xl font-bold mb-6 text-center">
+          <FuriganaText enabled={furiganaEnabled}>{selectedYear}年 日本の電源割合</FuriganaText>
+        </h1>
+        {/* 年度選択（棒グラフセクション内） */}
+        <YearPicker selectedYear={selectedYear} onYearChange={setSelectedYear} furiganaEnabled={furiganaEnabled} />
         <div className="space-y-4">
           {displayData.map((entry, index) => {
             const isSelected = selectedEnergyName === entry.energy;
@@ -168,14 +178,16 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
         </p>
       )}
 
-      {/* エネルギー詳細カード */}
+      {/* エネルギー詳細カード（スクロール先） */}
       {selectedEnergyType && (
-        <EnergyDetailCard
-          energyType={selectedEnergyType}
-          year={selectedYear}
-          onClose={() => setSelectedEnergyName(null)}
-          furiganaEnabled={furiganaEnabled}
-        />
+        <div ref={detailCardRef}>
+          <EnergyDetailCard
+            energyType={selectedEnergyType}
+            year={selectedYear}
+            onClose={() => setSelectedEnergyName(null)}
+            furiganaEnabled={furiganaEnabled}
+          />
+        </div>
       )}
     </div>
   );

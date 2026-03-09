@@ -11,7 +11,11 @@ const COUNTRY_FLAGS: Record<string, string> = {
   IRN: "🇮🇷", KOR: "🇰🇷", THA: "🇹🇭", TWN: "🇹🇼", GBR: "🇬🇧", NLD: "🇳🇱", ITA: "🇮🇹",
 };
 
-/** 石炭・石油・天然ガスの輸入元割合（backend extractedData_AFpercentage を使用） */
+/** モジュールレベルキャッシュ：同じ energyType+year では初回のみフェッチ */
+const importDataCache: Record<string, ImportData[] | { error: string }> = {};
+
+/** 石炭・石油・天然ガスの輸入元割合（backend extractedData_AFpercentage を使用）
+ * 初回ロードのみフェッチ。供給プロセス更新時などの再フェッチを防ぐ */
 export function useImportData(
   selectedSource: "lng" | "coal" | "oil" | null,
   year: number
@@ -27,6 +31,19 @@ export function useImportData(
       setError(null);
       return;
     }
+    const key = `${selectedSource}-${year}`;
+    const cached = importDataCache[key];
+    if (cached) {
+      if ("error" in cached) {
+        setError(cached.error);
+        setImportData([]);
+      } else {
+        setImportData(cached);
+        setError(null);
+      }
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     setError(null);
     fetch(`/api/import-data/${selectedSource}?year=${year}`)
@@ -38,11 +55,14 @@ export function useImportData(
           countryCode: d.countryCode,
           flag: d.countryCode ? COUNTRY_FLAGS[d.countryCode] ?? "🌍" : "🌍",
         }));
+        importDataCache[key] = withFlag;
         setImportData(withFlag);
       })
       .catch((err) => {
         console.error(err);
-        setError(err?.message ?? "Failed to fetch import data");
+        const errMsg = err?.message ?? "Failed to fetch import data";
+        importDataCache[key] = { error: errMsg };
+        setError(errMsg);
         setImportData([]);
       })
       .finally(() => setLoading(false));

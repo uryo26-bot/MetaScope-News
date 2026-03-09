@@ -52,5 +52,14 @@ export function getIso2FromIso3(iso3: string): string | null {
   return ISO3_TO_ISO2[iso3.toUpperCase()] ?? null;
 }
 
+/** ISO 3166-1 alpha-2 → alpha-3。未対応は null */
+const ISO2_TO_ISO3: Record<string, string> = Object.fromEntries(
+  Object.entries(ISO3_TO_ISO2).map(([k, v]) => [v, k])
+);
+export function getIso3FromIso2(iso2: string): string | null {
+  if (!iso2 || iso2.length !== 2) return null;
+  return ISO2_TO_ISO3[iso2.toUpperCase()] ?? null;
+}
+
 /** 国旗画像用にサポートしている ISO 3166-1 alpha-2 コード一覧 */
 export const ISO2_CODES = [...new Set(Object.values(ISO3_TO_ISO2))] as string[];

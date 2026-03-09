@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import { LensCard } from "./LensCard";
-import { MapMakingStickFigure } from "./MapMakingStickFigure";
+import { SprintingStickFigure } from "./SprintingStickFigure";
 import { MapModal } from "./MapModal";
 import type { LensType } from "./LensCard";
 
@@ -43,9 +43,9 @@ const LENS_CONFIG: {
   label: string;
   purpose: string;
 }[] = [
-  { type: "domestic", label: "国内政治", purpose: "政権の維持と政策実現" },
-  { type: "international", label: "国際政治", purpose: "国益の確保と安全保障" },
-  { type: "economic", label: "経済", purpose: "成長・安定・資源確保" },
+  { type: "domestic", label: "国内", purpose: "国内視点での分析" },
+  { type: "international", label: "国際", purpose: "国際視点での分析" },
+  { type: "economic", label: "経済", purpose: "経済視点での分析" },
 ];
 
 const LENS_TO_API: Record<LensType, string> = {
@@ -55,10 +55,10 @@ const LENS_TO_API: Record<LensType, string> = {
 };
 
 const LOADING_MESSAGES = [
-  "主題を認識中",
-  "タイムラインを整理中",
-  "主語を整理中",
-  "影響範囲ごとにメリット・デメリットを整理中",
+  "分析中...",
+  "ニュースを解析しています...",
+  "地図を作成しています...",
+  "もうしばらくお待ちください...",
 ];
 
 export default function NewsScopeClient() {
@@ -116,12 +116,12 @@ export default function NewsScopeClient() {
         const msg =
           data?.error ??
           (res.status === 502
-            ? "バックエンドに接続できません。backend フォルダで uvicorn backend.app:app --reload を実行しているか確認してください。"
-            : `エラーが発生しました（HTTP ${res.status}）`);
+            ? "バックエンドが起動していません。backend フォルダで uvicorn backend.app:app --reload を実行してください。"
+            : `エラーが発生しました。HTTP ${res.status}`);
         throw new Error(msg);
       }
       if (data.is_valid === false) {
-        setInvalidMessage(data.message ?? "構造分析に適したトピックを入力してください。");
+        setInvalidMessage(data.message ?? "このニュースは有効ではありません。");
         setResult(null);
         return;
       }
@@ -130,7 +130,7 @@ export default function NewsScopeClient() {
     } catch (e) {
       console.error(e);
       setResult(null);
-      setApiError(e instanceof Error ? e.message : "エラーが発生しました");
+      setApiError(e instanceof Error ? e.message : "予期せぬエラーが発生しました");
     } finally {
       setLoading(false);
     }
@@ -192,7 +192,7 @@ export default function NewsScopeClient() {
         if (!fetchAbortedRef.current) {
           setDetailsCache((prev) => ({
             ...prev,
-            [item.key]: { explanation: "取得に失敗しました。", countries: [] },
+            [item.key]: { explanation: "詳細の取得に失敗しました", countries: [] },
           }));
         }
       } finally {
@@ -240,14 +240,11 @@ export default function NewsScopeClient() {
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div>
-        <label htmlFor="news-input" className="block text-sm font-medium text-zinc-400 mb-2">
-          ニューステキスト
-        </label>
         <textarea
           id="news-input"
           value={newsText}
           onChange={(e) => setNewsText(e.target.value)}
-          placeholder="ニュースのテキストを貼り付けてください…"
+          placeholder="ニュース本文を貼り付けてください..."
           rows={5}
           className="w-full rounded-lg border border-zinc-600 bg-zinc-800/80 text-zinc-100 placeholder-zinc-500 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-zinc-500 resize-y"
           disabled={loading}
@@ -256,15 +253,13 @@ export default function NewsScopeClient() {
           type="button"
           onClick={handleAnalyze}
           disabled={loading || !newsText.trim()}
-          className="mt-3 px-6 py-2.5 rounded-lg bg-zinc-600 text-zinc-100 font-medium hover:bg-zinc-500 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:ring-offset-zinc-900 transition-colors"
+          className="mt-6 w-28 h-28 rounded-full bg-gradient-to-b from-zinc-100 to-zinc-200 border-[6px] border-zinc-800 text-zinc-900 font-bold text-sm shadow-[inset_0_3px_6px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.08),0_6px_12px_rgba(0,0,0,0.4),0_2px_4px_rgba(0,0,0,0.3)] hover:bg-gradient-to-b hover:from-zinc-200 hover:to-zinc-300 hover:shadow-[inset_0_3px_6px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,0,0,0.06),0_8px_16px_rgba(0,0,0,0.45)] active:scale-[0.97] active:shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2 focus:ring-offset-zinc-900 transition-all flex items-center justify-center"
         >
           {loading ? (
             <span className="inline-flex items-center gap-2">
-              <span className="inline-block w-4 h-4 border-2 border-zinc-400 border-t-transparent rounded-full animate-spin" />
-              分析中…
-            </span>
+              <span className="inline-block w-4 h-4 border-2 border-zinc-400 border-t-transparent rounded-full animate-spin" />分析中</span>
           ) : (
-            "構造を読む"
+            <span className="flex items-center justify-center w-20 h-20 rounded-full bg-zinc-900 text-white font-bold text-xs leading-tight text-center px-1">解析する</span>
           )}
         </button>
       </div>
@@ -278,10 +273,10 @@ export default function NewsScopeClient() {
       {!loading && invalidMessage && (
         <div className="rounded-xl border border-zinc-600 bg-zinc-800/80 p-10 text-center">
           <span className="mb-4 block text-3xl" aria-hidden>
-            🔍
+            ⚠
           </span>
           <p className="mb-4 text-lg font-medium text-zinc-200">
-            構造を読むのが難しそうです
+            このニュースは有効ではありません
           </p>
           <p className="text-sm leading-relaxed text-zinc-400">
             {invalidMessage}
@@ -291,51 +286,18 @@ export default function NewsScopeClient() {
 
       {loading && (
         <div className="flex flex-col items-center justify-center gap-4 py-12">
-          {loadingMessage === LOADING_MESSAGES[LOADING_MESSAGES.length - 1] ? (
-            <MapMakingStickFigure />
-          ) : (
-            <span
-              className="inline-block h-10 w-10 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin"
-              aria-hidden
-            />
-          )}
+          <SprintingStickFigure />
           <p className="text-sm text-zinc-400">{loadingMessage}</p>
         </div>
       )}
 
       {!loading && result && (
         <>
-          {/* 1. 主体選択エリア */}
-          <section>
-            <h2 className="text-sm font-medium text-zinc-500 mb-3">主体を選択</h2>
-            <div className="flex flex-wrap gap-2">
-              {result.subjects.map((subject) => {
-                const isSelected = selectedSubject === subject;
-                return (
-                  <button
-                    key={subject}
-                    type="button"
-                    onClick={() => setSelectedSubject(subject)}
-                    className={[
-                      "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                      "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 focus-visible:ring-zinc-400",
-                      isSelected
-                        ? "bg-[#F59E0B] text-zinc-900 hover:bg-amber-500"
-                        : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600",
-                    ].join(" ")}
-                  >
-                    {subject}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* 2. タイムライン */}
+          {/* 1. タイムライン */}
           {result.timeline && result.timeline.length > 0 && (
             <section className="rounded-lg border border-zinc-700 bg-zinc-800/50 p-6">
               <h2 className="text-lg font-semibold text-zinc-200 mb-6">
-                このニュースの経緯
+                タイムライン
               </h2>
               <div className="relative">
                 <div
@@ -387,12 +349,41 @@ export default function NewsScopeClient() {
             </section>
           )}
 
-          {/* 3. 分析カード */}
+          {/* 2. 視点からの分析 */}
           {currentAnalysis && (
             <section>
-              <h2 className="text-sm font-medium text-zinc-500 mb-3">
-                {selectedSubject} の分析
-              </h2>
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                {/* 分析対象の選択 */}
+                {result.subjects.map((subject) => {
+                  const isSelected = selectedSubject === subject;
+                  return (
+                    <button
+                      key={subject}
+                      type="button"
+                      onClick={() => setSelectedSubject(subject)}
+                      className={[
+                        "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 focus-visible:ring-zinc-400",
+                        isSelected
+                          ? "px-6 py-3 rounded-xl text-lg font-bold bg-[#F59E0B] text-zinc-900 hover:bg-amber-500"
+                          : "px-3 py-1.5 rounded-lg text-sm font-medium bg-zinc-700 text-zinc-300 hover:bg-zinc-600",
+                      ].join(" ")}
+                    >
+                      {subject}
+                    </button>
+                  );
+                })}
+                <span className="text-lg font-bold text-zinc-400">の立場で見る</span>
+                {result.timeline && result.timeline.length > 0 && (
+                  <span className="ml-4 min-w-0 flex-1">
+                    <span
+                      className="block w-full rounded-lg border border-zinc-600 bg-zinc-800/80 px-4 py-2.5 text-sm leading-relaxed font-medium text-zinc-100"
+                      role="presentation"
+                    >
+                      {result.timeline[result.timeline.length - 1]?.event}
+                    </span>
+                  </span>
+                )}
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {LENS_CONFIG.map((config) => (
                   <LensCard

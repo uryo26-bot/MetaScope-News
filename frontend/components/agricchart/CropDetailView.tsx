@@ -110,6 +110,7 @@ export function CropDetailView({ crop }: { crop: Crop }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ShareChart
+              key={`production-${dataYear}`}
               title={productionShareLoading ? "世界の生産国割合（読み込み中）" : "世界の生産国割合"}
               data={globalProductionData}
               action={
@@ -122,6 +123,7 @@ export function CropDetailView({ crop }: { crop: Crop }) {
               }
             />
             <ShareChart
+              key={`import-${dataYear}`}
               title={importShareLoading ? "日本の輸入元割合（読み込み中）" : `日本の輸入元割合（${dataYear}年）`}
               data={japanImportData}
               action={

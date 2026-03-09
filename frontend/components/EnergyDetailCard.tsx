@@ -6,6 +6,7 @@ import { X, DollarSign, Activity, Leaf } from "lucide-react";
 import { EnergyType, ImportSource } from "../types/types";
 import { ENERGY_DETAILS, ENERGY_NAMES, ENERGY_COLORS } from "../constants/energyDetails";
 import { useImportData } from "../hooks/useImportData";
+import { getIso2FromIso3 } from "../lib/countryFlags";
 import { ProcessFlow } from "./ProcessFlow";
 import { MetricTooltip } from "./MetricTooltip";
 import { FuriganaText } from "./Furigana";
@@ -21,9 +22,6 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
   const detail = ENERGY_DETAILS[energyType];
   const energyName = ENERGY_NAMES[energyType];
   const color = ENERGY_COLORS[energyType];
-  const [selectedCountry, setSelectedCountry] = useState<ImportSource | null>(null);
-  const [showAllImportSources, setShowAllImportSources] = useState(false);
-
   const shouldFetchImportData = energyType === "lng" || energyType === "coal" || energyType === "oil";
   const { importData, loading: importLoading, error: importError } = useImportData(
     shouldFetchImportData ? energyType : null,
@@ -32,6 +30,8 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
   const importSources = shouldFetchImportData && importData.length > 0
     ? importData.map((d) => ({ ...d, color }))
     : detail.importSources;
+
+  const [showAllImportSources, setShowAllImportSources] = useState(false);
 
   // 5か国以上のときは上位4か国＋「その他」（5位以下を合算）
   const sortedSources = importSources
@@ -55,7 +55,6 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
           },
         ]
       : sortedSources.map(toImportSource);
-  const isOther = (s: ImportSource) => s.countryCode === "OTHER" && s.country === "その他";
 
   // 星評価の表示
   const renderStars = (score: number) => {
@@ -103,7 +102,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
       {/* 3カラムレイアウト：評価指標 / 輸入元の割合 / 発電プロセスフロー */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* セクション1: 評価指標 */}
-        <div className="rounded-2xl p-5 border-2 h-full flex flex-col bg-blue-50/40" style={{ borderColor: color }}>
+        <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-blue-50/40" style={{ borderColor: color }}>
           <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
             <FuriganaText enabled={furiganaEnabled}>評価指標</FuriganaText>
           </h3>
@@ -187,16 +186,19 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
           </div>
         </div>
 
-        {/* セクション2: 輸入元の割合（石炭・石油・天然ガスは extractedData_AFpercentage のCSVを使用） */}
-        <div className="rounded-2xl p-5 border-2 h-full flex flex-col bg-sky-50/40" style={{ borderColor: color }}>
+        {/* セクション2: 輸入元の割合（電源割合と同様の棒グラフ形式） */}
+        <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-sky-50/40" style={{ borderColor: color }}>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <h3 className="text-xl font-bold">
-              <FuriganaText enabled={furiganaEnabled}>輸入元の割合</FuriganaText>
+              <FuriganaText enabled={furiganaEnabled}>
+                {shouldFetchImportData ? `日本の輸入元割合（${year}年）` : "輸入元の割合"}
+              </FuriganaText>
             </h3>
             {(energyType === "lng" || energyType === "coal" || energyType === "oil") && (
               <Link
                 href={`/portchart?chart=enechart&id=${energyType}&year=${year}&type=import`}
-                className="px-3 py-1.5 rounded-lg bg-slate-700 text-white text-xs font-bold hover:bg-slate-600 transition-colors whitespace-nowrap"
+                className="px-3 py-1.5 rounded-lg text-white text-xs font-bold transition-colors whitespace-nowrap hover:opacity-90"
+                style={{ backgroundColor: color }}
               >
                 PortChartへ（輸入元）
               </Link>
@@ -211,97 +213,109 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               <FuriganaText enabled={furiganaEnabled}>エラー: {importError}</FuriganaText>
             </p>
           ) : displaySources.length > 0 ? (
-            <>
-              {!selectedCountry && !showAllImportSources && (
-                <p className="text-sm text-gray-600 mb-4">
-                  <FuriganaText enabled={furiganaEnabled}>
-                    {displaySources.some(isOther) ? "クリックで詳細・その他で一覧表示" : "クリックで各国の詳細情報へ"}
-                  </FuriganaText>
-                </p>
-              )}
-              <div className="space-y-3 overflow-y-auto pr-1">
-                {displaySources.map((source, index) => (
-                  <button
-                    key={source.countryCode === "OTHER" ? "other" : index}
-                    onClick={() =>
-                      isOther(source) ? setShowAllImportSources((v) => !v) : setSelectedCountry(source)
-                    }
-                    className="w-full flex items-center gap-4 p-3 rounded-xl border-2 bg-white hover:shadow-md transition-all"
-                    style={{ borderColor: source.color }}
+            <div className="space-y-3 flex-1 min-h-0 overflow-y-auto">
+              {displaySources.map((source, index) => {
+                const barWidth = Math.min(source.percentage, 100);
+                const percentageDisplay = Math.round(source.percentage * 10) / 10;
+                const isOther = source.countryCode === "OTHER";
+                const otherSources = sortedSources.length >= 5 ? sortedSources.slice(4) : [];
+                return (
+                  <div
+                    key={isOther ? "other" : index}
+                    role={isOther ? "button" : undefined}
+                    tabIndex={isOther ? 0 : undefined}
+                    onClick={isOther ? () => setShowAllImportSources((v) => !v) : undefined}
+                    onKeyDown={isOther ? (e) => e.key === "Enter" && setShowAllImportSources((v) => !v) : undefined}
+                    className={`flex items-center gap-4 p-3 rounded-lg bg-white shadow-sm border border-slate-100 ${isOther ? "cursor-pointer hover:bg-slate-50 transition-colors" : ""}`}
                   >
-                    <div className="flex flex-col items-center gap-1 min-w-[3.5rem]">
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700">
-                        {source.countryCode}
-                      </span>
-                      <span className="text-xl">{source.flag}</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-bold mb-1 text-sm">
-                        <FuriganaText enabled={furiganaEnabled}>{source.country}</FuriganaText>
-                      </div>
-                      <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                        <div
-                          className="h-full rounded-full transition-all"
-                          style={{
-                            width: `${Math.min(source.percentage, 100)}%`,
-                            backgroundColor: source.color,
-                          }}
+                    {/* 国名と国旗（棒グラフの左側・固定幅で開始位置を揃える） */}
+                    <div className="flex items-center gap-2 w-[10rem] shrink-0">
+                      {source.countryCode && source.countryCode !== "OTHER" && getIso2FromIso3(source.countryCode) ? (
+                        <img
+                          src={`/flags/${getIso2FromIso3(source.countryCode)!.toLowerCase()}.svg`}
+                          alt=""
+                          className="h-5 w-8 shrink-0 rounded object-cover"
+                          aria-hidden
                         />
-                      </div>
+                      ) : (
+                        <span className="text-lg shrink-0">{source.flag}</span>
+                      )}
+                      <span className="font-bold text-base break-words whitespace-normal">
+                        <FuriganaText enabled={furiganaEnabled}>{source.country}</FuriganaText>
+                      </span>
                     </div>
-                    <div className="font-bold text-sm">{source.percentage}%</div>
-                  </button>
-                ))}
-              </div>
 
-              {/* その他クリック時：下側に残りの国を表示 */}
-              {showAllImportSources && sortedSources.length >= 5 && (
-                <div className="mt-4 pt-4 border-t border-slate-200">
-                  <p className="text-xs font-bold text-slate-500 mb-3">
-                    <FuriganaText enabled={furiganaEnabled}>その他（5位以下）</FuriganaText>
-                  </p>
-                  <div className="space-y-2">
-                    {sortedSources.slice(4).map((source, index) => (
-                      <button
-                        key={`${source.countryCode ?? ""}-${index}`}
-                        onClick={() => setSelectedCountry(toImportSource(source))}
-                        className="w-full flex items-center gap-4 p-2 rounded-lg border border-slate-200 bg-white hover:shadow-sm transition-all text-left"
-                        style={{ borderColor: source.color }}
-                      >
-                        <div className="flex flex-col items-center gap-0.5 min-w-[3rem]">
-                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700">
-                            {source.countryCode}
-                          </span>
-                          <span className="text-base">{source.flag}</span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="font-bold text-xs">
-                            <FuriganaText enabled={furiganaEnabled}>{source.country}</FuriganaText>
-                          </div>
-                          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                            <div
-                              className="h-full rounded-full"
-                              style={{
-                                width: `${Math.min(source.percentage, 100)}%`,
-                                backgroundColor: source.color,
-                              }}
-                            />
-                          </div>
-                        </div>
-                        <div className="font-bold text-xs shrink-0">{source.percentage}%</div>
-                      </button>
-                    ))}
+                    {/* 棒グラフ（中央） */}
+                    <div className="flex-1 relative h-10 min-w-0">
+                      <div
+                        className="h-full rounded-lg transition-all"
+                        style={{
+                          width: barWidth + "%",
+                          backgroundColor: color,
+                        }}
+                      />
+                    </div>
+
+                    {/* 割合（右） */}
+                    <div className="text-right font-bold text-base shrink-0" style={{ width: "3rem" }}>
+                      {percentageDisplay}%
+                    </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setShowAllImportSources(false)}
-                    className="mt-3 w-full py-2 text-xs font-bold text-slate-500 hover:text-slate-700 border border-slate-200 rounded-lg"
-                  >
-                    <FuriganaText enabled={furiganaEnabled}>閉じる</FuriganaText>
-                  </button>
+                );
+              })}
+              {/* その他（5位以下）の展開リスト */}
+              {showAllImportSources && sortedSources.length >= 5 && (
+                <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-bold text-slate-600">その他（5位以下）</span>
+                    <button
+                      onClick={() => setShowAllImportSources(false)}
+                      className="text-xs font-bold px-2 py-1 rounded hover:bg-slate-200 transition-colors"
+                    >
+                      閉じる
+                    </button>
+                  </div>
+                  {sortedSources.slice(4).map((source, idx) => {
+                    const s = toImportSource(source);
+                    const barWidth = Math.min(s.percentage, 100);
+                    const pct = Math.round(s.percentage * 10) / 10;
+                    const iso2 = s.countryCode && s.countryCode !== "OTHER" ? getIso2FromIso3(s.countryCode) : null;
+                    return (
+                      <div
+                        key={s.countryCode || idx}
+                        className="flex items-center gap-4 p-2 rounded-lg bg-slate-50 border border-slate-100"
+                      >
+                        {/* 国名と国旗（棒グラフの左側・固定幅で開始位置を揃える） */}
+                        <div className="flex items-center gap-2 w-[10rem] shrink-0">
+                          {iso2 ? (
+                            <img
+                              src={`/flags/${iso2.toLowerCase()}.svg`}
+                              alt=""
+                              className="h-4 w-6 shrink-0 rounded object-cover"
+                              aria-hidden
+                            />
+                          ) : (
+                            <span className="text-base shrink-0">{s.flag}</span>
+                          )}
+                          <span className="font-bold text-base break-words whitespace-normal">
+                            <FuriganaText enabled={furiganaEnabled}>{s.country}</FuriganaText>
+                          </span>
+                        </div>
+                        <div className="flex-1 relative h-8 min-w-0">
+                          <div
+                            className="h-full rounded-lg transition-all"
+                            style={{ width: barWidth + "%", backgroundColor: color }}
+                          />
+                        </div>
+                        <div className="text-right font-bold text-base shrink-0" style={{ width: "3rem" }}>
+                          {pct}%
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
-            </>
+            </div>
           ) : (
             <p className="text-lg font-bold">
               <FuriganaText enabled={furiganaEnabled}>国内エネルギー源</FuriganaText>
@@ -310,60 +324,13 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
         </div>
 
         {/* セクション3: 供給プロセス */}
-        <div className="rounded-2xl p-5 border-2 h-full flex flex-col bg-orange-50/40" style={{ borderColor: color }}>
+        <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-orange-50/40" style={{ borderColor: color }}>
           <h3 className="text-xl font-bold mb-4 shrink-0">
             <FuriganaText enabled={furiganaEnabled}>供給プロセス</FuriganaText>
           </h3>
           <ProcessFlow steps={detail.processSteps} furiganaEnabled={furiganaEnabled} borderColor={color} />
         </div>
       </div>
-
-      {/* 拡大カード（輸入元詳細） */}
-      {selectedCountry && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          onClick={() => setSelectedCountry(null)}
-        >
-          <div
-            className="bg-white rounded-xl p-8 max-w-2xl mx-4 shadow-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center mb-6">
-              <div className="flex items-center gap-4">
-                <div className="text-6xl">{selectedCountry.flag}</div>
-                <h2 className="text-3xl font-bold">
-                  <FuriganaText enabled={furiganaEnabled}>{selectedCountry.country}</FuriganaText>
-                </h2>
-              </div>
-              <button
-                onClick={() => setSelectedCountry(null)}
-                className="text-2xl font-bold text-gray-500 hover:text-gray-700"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="mb-6">
-              <div className="text-2xl font-bold mb-2" style={{ color: selectedCountry.color }}>
-                {selectedCountry.percentage}%
-              </div>
-              <p className="text-lg">
-                <FuriganaText enabled={furiganaEnabled}>
-                  {selectedCountry.country}から{selectedCountry.percentage}%の{energyName}を輸入しています。
-                </FuriganaText>
-              </p>
-            </div>
-
-            <button
-              onClick={() => setSelectedCountry(null)}
-              className="px-6 py-3 bg-gray-300 rounded-lg font-bold hover:bg-gray-400 transition-all"
-            >
-              <FuriganaText enabled={furiganaEnabled}>閉じる</FuriganaText>
-            </button>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }

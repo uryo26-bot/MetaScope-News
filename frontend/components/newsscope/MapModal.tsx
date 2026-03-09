@@ -75,7 +75,7 @@ export function MapModal({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           subject,
-          lens: label === "国内政治" ? "domestic" : label === "国際政治" ? "international" : "economic",
+          lens: label === "国内" ? "domestic" : label === "国際" ? "international" : "economic",
           content,
           news,
         }),

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type ShareItem = { country: string; value: number };
+export type ShareItem = { country: string; value: number; country_code?: string };
 
 function useChartShare(
   chartType: "metalchart" | "agrichart",

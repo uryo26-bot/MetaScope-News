@@ -30,18 +30,17 @@ export function ProcessFlow({ steps, furiganaEnabled, borderColor }: ProcessFlow
   return (
     <div className="w-full flex flex-col min-h-0">
       <div className="flex flex-col gap-5 flex-1 min-h-0 overflow-hidden pt-6">
-        {/* ステップ（3秒ごとに選択状態が切り替わる疑似的アニメーション + クリックでジャンプ） */}
         {steps.map((step, index) => {
           const isSelected = index === activeIndex;
+          const borderColorStyle = isSelected ? borderColor : borderColor + "99";
+          const descBorderColor = borderColor + "40";
           return (
             <button
               key={index}
               type="button"
               onClick={() => handleStepClick(index)}
-              className={`w-full flex gap-4 p-3 rounded-xl bg-white shadow-sm text-left transition-all duration-200 ${
-                isSelected ? "border-4" : "border-2"
-              }`}
-              style={{ borderColor: isSelected ? borderColor : `${borderColor}99` }}
+              className="w-full flex gap-4 p-3 rounded-xl bg-white shadow-sm text-left transition-colors duration-200 border-4"
+              style={{ borderColor: borderColorStyle }}
             >
               <div
                 className="w-14 h-14 shrink-0 flex items-center justify-center text-3xl bg-white rounded-full border-2 shadow-sm"
@@ -50,18 +49,19 @@ export function ProcessFlow({ steps, furiganaEnabled, borderColor }: ProcessFlow
                 {step.icon}
               </div>
               <div className="flex-1 flex flex-col gap-2 min-w-0">
-                <div className="font-bold text-base py-1">
+                <div className="font-bold text-base py-1 shrink-0">
                   <FuriganaText enabled={furiganaEnabled}>{step.name}</FuriganaText>
                 </div>
-                {/* クリック時のみ四角の内側に詳細説明を表示 */}
-                {isSelected && (
+                <div
+                  className="min-h-[3.5rem] overflow-y-auto border-t pt-2"
+                  style={{ borderTopColor: descBorderColor }}
+                >
                   <p
-                    className="py-2 px-0 text-sm text-gray-700 border-t pt-2"
-                    style={{ borderTopColor: `${borderColor}40` }}
+                    className={`text-sm text-gray-700 ${isSelected ? "font-semibold" : ""}`}
                   >
                     <FuriganaText enabled={furiganaEnabled}>{step.description}</FuriganaText>
                   </p>
-                )}
+                </div>
               </div>
             </button>
           );

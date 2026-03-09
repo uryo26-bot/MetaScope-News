@@ -11,6 +11,7 @@ export function Header() {
   const isEneChart = pathname === "/";
   const isMetalChart = pathname?.startsWith("/metalchart") ?? false;
   const isAgricChart = pathname?.startsWith("/agricchart") ?? false;
+  const isNewsScope = pathname?.startsWith("/newsscope") ?? false;
 
   return (
     <header className="font-header relative bg-gradient-to-b from-white to-slate-50/80 border-b border-slate-200/80 shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
@@ -67,6 +68,14 @@ export function Header() {
             }`}
           >
             <FuriganaText enabled={furiganaEnabled}>AgriChart</FuriganaText>
+          </Link>
+          <Link
+            href="/newsscope"
+            className={`px-5 py-2.5 rounded-md text-sm font-bold transition-all duration-200 ${
+              isNewsScope ? "bg-slate-800 text-white shadow-sm" : "text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+            }`}
+          >
+            <FuriganaText enabled={furiganaEnabled}>NewsScope</FuriganaText>
           </Link>
         </nav>
       </div>
