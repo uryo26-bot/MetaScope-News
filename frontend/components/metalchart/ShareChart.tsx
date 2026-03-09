@@ -55,18 +55,17 @@ function getIso3ForCountry(name: string, countryCode?: string): string | null {
   return NAME_TO_ISO3[name] ?? null;
 }
 
-function TickWithFlag({
-  x,
-  y,
-  payload,
-  chartData,
-}: {
-  x: number;
-  y: number;
-  payload: { value: string };
+type TickProps = {
+  x?: number;
+  y?: number;
+  payload?: { value: string };
   chartData: { name: string; value: number; country_code?: string }[];
-}) {
-  const item = chartData.find((d) => d.name === payload.value);
+};
+
+function TickWithFlag(props: TickProps) {
+  const { x = 0, y = 0, payload, chartData } = props;
+  const name = payload?.value ?? "";
+  const item = chartData.find((d) => d.name === name);
   const iso3 = item ? getIso3ForCountry(item.name, item.country_code) : null;
   const iso2 = iso3 ? getIso2FromIso3(iso3) : null;
 
@@ -99,7 +98,7 @@ function TickWithFlag({
             />
           ) : null}
           <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-            {payload.value}
+            {name}
           </span>
         </div>
       </foreignObject>
@@ -165,7 +164,7 @@ export function ShareChart({ title, data, action, variant = "default", accentCol
               <LabelList
                 dataKey="value"
                 position="right"
-                formatter={(value: number) => `${value}%`}
+                formatter={(value: unknown) => `${value ?? 0}%`}
                 style={{ fill: isEneChart ? accentColor : "#475569", fontWeight: 600, fontSize: 12 }}
               />
             </Bar>
