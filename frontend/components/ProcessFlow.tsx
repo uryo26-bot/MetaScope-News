@@ -49,7 +49,7 @@ export function ProcessFlow({ steps, furiganaEnabled, borderColor }: ProcessFlow
                 {step.icon}
               </div>
               <div className="flex-1 flex flex-col gap-2 min-w-0">
-                <div className="font-bold text-base py-1 shrink-0">
+                <div className="font-bold text-base py-1 shrink-0 text-slate-800">
                   <FuriganaText enabled={furiganaEnabled}>{step.name}</FuriganaText>
                 </div>
                 <div
@@ -57,7 +57,7 @@ export function ProcessFlow({ steps, furiganaEnabled, borderColor }: ProcessFlow
                   style={{ borderTopColor: descBorderColor }}
                 >
                   <p
-                    className={`text-sm text-gray-700 ${isSelected ? "font-semibold" : ""}`}
+                    className={`text-sm text-slate-700 ${isSelected ? "font-semibold" : ""}`}
                   >
                     <FuriganaText enabled={furiganaEnabled}>{step.description}</FuriganaText>
                   </p>

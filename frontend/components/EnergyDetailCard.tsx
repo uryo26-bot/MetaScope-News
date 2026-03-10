@@ -87,13 +87,13 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
             {energyType === "biomass" && "🌾"}
             {energyType === "solar" && "☀️"}
           </div>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold text-slate-800">
             <FuriganaText enabled={furiganaEnabled}>{energyName}の詳細</FuriganaText>
           </h2>
         </div>
         <button
           onClick={onClose}
-          className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-all"
+          className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-all text-slate-800"
         >
           <X className="w-6 h-6" />
         </button>
@@ -103,7 +103,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* セクション1: 評価指標 */}
         <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-blue-50/40" style={{ borderColor: color }}>
-          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+          <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-slate-800">
             <FuriganaText enabled={furiganaEnabled}>評価指標</FuriganaText>
           </h3>
           <div className="flex flex-col gap-3">
@@ -116,16 +116,16 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-bold">
+                  <span className="text-sm font-bold text-slate-800">
                     <FuriganaText enabled={furiganaEnabled}>コスト</FuriganaText>
                   </span>
                   <MetricTooltip description={detail.metrics.cost.description} furiganaEnabled={furiganaEnabled} />
                 </div>
-                <div className="text-lg font-bold mb-1">
+                <div className="text-lg font-bold mb-1 text-slate-800">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.cost.value}</FuriganaText>
                 </div>
                 <div className="flex items-center gap-1 text-sm mb-1">{renderStars(detail.metrics.cost.score)}</div>
-                <p className="text-xs text-gray-600 leading-snug">
+                <p className="text-xs text-slate-700 leading-snug">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.cost.description}</FuriganaText>
                 </p>
               </div>
@@ -140,16 +140,16 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-bold">
+                  <span className="text-sm font-bold text-slate-800">
                     <FuriganaText enabled={furiganaEnabled}>供給安定性</FuriganaText>
                   </span>
                   <MetricTooltip description={detail.metrics.stability.description} furiganaEnabled={furiganaEnabled} />
                 </div>
-                <div className="text-lg font-bold mb-1">
+                <div className="text-lg font-bold mb-1 text-slate-800">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.stability.value}</FuriganaText>
                 </div>
                 <div className="flex items-center gap-1 text-sm mb-1">{renderStars(detail.metrics.stability.score)}</div>
-                <p className="text-xs text-gray-600 leading-snug">
+                <p className="text-xs text-slate-700 leading-snug">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.stability.description}</FuriganaText>
                 </p>
               </div>
@@ -164,7 +164,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-sm font-bold">
+                  <span className="text-sm font-bold text-slate-800">
                     <FuriganaText enabled={furiganaEnabled}>環境負荷</FuriganaText>
                   </span>
                   <MetricTooltip
@@ -172,13 +172,13 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                     furiganaEnabled={furiganaEnabled}
                   />
                 </div>
-                <div className="text-lg font-bold mb-1">
+                <div className="text-lg font-bold mb-1 text-slate-800">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.environmental.value}</FuriganaText>
                 </div>
                 <div className="flex items-center gap-1 text-sm mb-1">
                   {renderStars(detail.metrics.environmental.score)}
                 </div>
-                <p className="text-xs text-gray-600 leading-snug">
+                <p className="text-xs text-slate-700 leading-snug">
                   <FuriganaText enabled={furiganaEnabled}>{detail.metrics.environmental.description}</FuriganaText>
                 </p>
               </div>
@@ -189,7 +189,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
         {/* セクション2: 輸入元の割合（電源割合と同様の棒グラフ形式） */}
         <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-sky-50/40" style={{ borderColor: color }}>
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <h3 className="text-xl font-bold">
+            <h3 className="text-xl font-bold text-slate-800">
               <FuriganaText enabled={furiganaEnabled}>
                 {shouldFetchImportData ? `日本の輸入元割合（${year}年）` : "輸入元の割合"}
               </FuriganaText>
@@ -205,7 +205,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
             )}
           </div>
           {importLoading ? (
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-slate-700">
               <FuriganaText enabled={furiganaEnabled}>読み込み中...</FuriganaText>
             </p>
           ) : importError ? (
@@ -240,7 +240,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                       ) : (
                         <span className="text-lg shrink-0">{source.flag}</span>
                       )}
-                      <span className="font-bold text-base break-words whitespace-normal">
+                      <span className="font-bold text-base break-words whitespace-normal text-slate-800">
                         <FuriganaText enabled={furiganaEnabled}>{source.country}</FuriganaText>
                       </span>
                     </div>
@@ -257,7 +257,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                     </div>
 
                     {/* 割合（右） */}
-                    <div className="text-right font-bold text-base shrink-0" style={{ width: "3rem" }}>
+                    <div className="text-right font-bold text-base shrink-0 text-slate-800" style={{ width: "3rem" }}>
                       {percentageDisplay}%
                     </div>
                   </div>
@@ -267,10 +267,10 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               {showAllImportSources && sortedSources.length >= 5 && (
                 <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-bold text-slate-600">その他（5位以下）</span>
+                    <span className="text-sm font-bold text-slate-800">その他（5位以下）</span>
                     <button
                       onClick={() => setShowAllImportSources(false)}
-                      className="text-xs font-bold px-2 py-1 rounded hover:bg-slate-200 transition-colors"
+                      className="text-xs font-bold px-2 py-1 rounded hover:bg-slate-200 transition-colors text-slate-800"
                     >
                       閉じる
                     </button>
@@ -297,7 +297,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                           ) : (
                             <span className="text-base shrink-0">{s.flag}</span>
                           )}
-                          <span className="font-bold text-base break-words whitespace-normal">
+                          <span className="font-bold text-base break-words whitespace-normal text-slate-800">
                             <FuriganaText enabled={furiganaEnabled}>{s.country}</FuriganaText>
                           </span>
                         </div>
@@ -307,7 +307,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                             style={{ width: barWidth + "%", backgroundColor: color }}
                           />
                         </div>
-                        <div className="text-right font-bold text-base shrink-0" style={{ width: "3rem" }}>
+                        <div className="text-right font-bold text-base shrink-0 text-slate-800" style={{ width: "3rem" }}>
                           {pct}%
                         </div>
                       </div>
@@ -317,7 +317,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
               )}
             </div>
           ) : (
-            <p className="text-lg font-bold">
+            <p className="text-lg font-bold text-slate-800">
               <FuriganaText enabled={furiganaEnabled}>国内エネルギー源</FuriganaText>
             </p>
           )}
@@ -325,7 +325,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
 
         {/* セクション3: 供給プロセス */}
         <div className="rounded-2xl p-5 border-2 h-full flex flex-col min-w-0 overflow-hidden bg-orange-50/40" style={{ borderColor: color }}>
-          <h3 className="text-xl font-bold mb-4 shrink-0">
+          <h3 className="text-xl font-bold mb-4 shrink-0 text-slate-800">
             <FuriganaText enabled={furiganaEnabled}>供給プロセス</FuriganaText>
           </h3>
           <ProcessFlow steps={detail.processSteps} furiganaEnabled={furiganaEnabled} borderColor={color} />
