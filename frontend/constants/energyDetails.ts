@@ -13,17 +13,17 @@ export const ENERGY_NAMES: Record<EnergyType, string> = {
   solar: "太陽光",
 };
 
-// 電源の色
+// 電源の色（視認性を考慮してやや濃いめに）
 export const ENERGY_COLORS: Record<EnergyType, string> = {
-  lng: "#3b82f6", // blue
-  coal: "#424242", // gray
-  oil: "#5c6bc0", // indigo
-  nuclear: "#81c784", // green
-  hydro: "#0059ff", // blue
-  wind: "#a5d6a7", // light green
-  geothermal: "#e92f2f", // red
-  biomass: "#aed581", // lime
-  solar: "#f59e0b", // amber
+  lng: "#2563eb", // blue-600
+  coal: "#374151", // gray-700
+  oil: "#4f46e5", // indigo-600
+  nuclear: "#4ade80", // green-400
+  hydro: "#1d4ed8", // blue-700
+  wind: "#22c55e", // green-500
+  geothermal: "#dc2626", // red-600
+  biomass: "#84cc16", // lime-500
+  solar: "#ea580c", // orange-600
 };
 
 // ENERGY_DETAILSデータ

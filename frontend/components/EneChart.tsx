@@ -86,7 +86,7 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
       {/* 棒グラフ */}
       <div className="bg-white rounded-xl p-8 border-4 border-blue-500 shadow-lg mb-8">
         {/* タイトル（年度スライダーの上） */}
-        <h1 className="text-4xl font-bold mb-6 text-center">
+        <h1 className="text-4xl font-bold mb-6 text-center text-slate-800">
           <FuriganaText enabled={furiganaEnabled}>{selectedYear}年 日本の電源割合</FuriganaText>
         </h1>
         {/* 年度選択（棒グラフセクション内） */}
@@ -109,11 +109,11 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
                 onClick={() => handleBarClick(entry)}
                 style={{
                   border: isSelected ? `3px solid ${color}` : "none",
-                  opacity: isSelected ? 1 : 0.4,
+                  opacity: isSelected ? 1 : 0.9,
                 }}
               >
                 {/* 電源名（左） */}
-                <div className="w-32 font-bold text-xl">
+                <div className="w-32 font-bold text-xl text-slate-800">
                   <FuriganaText enabled={furiganaEnabled}>{entry.energy}</FuriganaText>
                 </div>
 
@@ -131,14 +131,14 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
                     )}
                   </div>
                   {!showPercentageInside && (
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-lg">
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-lg text-slate-800">
                       {percentageDisplay}%
                     </span>
                   )}
                 </div>
 
                 {/* 発電量（右） */}
-                <div className="w-32 text-right font-bold text-lg">
+                <div className="w-32 text-right font-bold text-lg text-slate-800">
                   {entry.amount || Math.round((entry.percentage / 100) * yearStats.generation)}
                   <FuriganaText enabled={furiganaEnabled}>億kWh</FuriganaText>
                 </div>
@@ -154,7 +154,7 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
             {[0, 10, 20, 30, 40].map((value) => (
               <span
                 key={value}
-                className="absolute text-sm font-bold -translate-x-1/2"
+                className="absolute text-sm font-bold text-slate-700 -translate-x-1/2"
                 style={{ left: `${(value / 40) * 100}%` }}
               >
                 {value}%
@@ -167,13 +167,13 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
 
       {/* ガイダンステキスト */}
       {selectedEnergyType ? (
-        <p className="text-center text-lg font-bold mb-4">
+        <p className="text-center text-lg font-bold mb-4 text-slate-800">
           <FuriganaText enabled={furiganaEnabled}>
             {ENERGY_NAMES[selectedEnergyType]}の詳細情報が表示されています
           </FuriganaText>
         </p>
       ) : (
-        <p className="text-center text-lg font-bold mb-4">
+        <p className="text-center text-lg font-bold mb-4 text-slate-800">
           <FuriganaText enabled={furiganaEnabled}>各電源をクリックすると詳細情報が表示されます</FuriganaText>
         </p>
       )}

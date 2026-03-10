@@ -18,7 +18,7 @@ export function PowerInfoModal({ consumption, generation, year, furiganaEnabled 
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-blue-500 bg-gradient-to-r from-blue-50 to-green-50 hover:shadow-md transition-all"
+        className="flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-blue-500 bg-gradient-to-r from-blue-50 to-green-50 hover:shadow-md transition-all text-slate-800"
       >
         <Info className="w-5 h-5 text-blue-600" />
         <div className="text-left">
