@@ -23,21 +23,29 @@ function parseCsv(csv: string): EnergyRecord[] {
     .filter((r) => r.energy && !Number.isNaN(r.year) && !Number.isNaN(r.percentage));
 }
 
-// C:\...\EneChart11\backend\data\energy_mix_percentage.csv を参照（cwd が frontend またはリポジトリルートのどちらでも可）
+// backend/data/energy_mix_percentage.csv を参照
+// - Vercel (Root=frontend): トレースされたファイルは cwd/../backend 付近に配置される
+// - ローカル: cwd が frontend またはリポジトリルートのどちらでも可
 const CSV_NAME = "energy_mix_percentage.csv";
-const CSV_RELATIVE = path.join("backend", "data", CSV_NAME);
+const CANDIDATES = [
+  path.join(process.cwd(), "..", "backend", "data", CSV_NAME), // Vercel / frontend から実行時
+  path.join(process.cwd(), "backend", "data", CSV_NAME), // リポジトリルートから実行時
+];
 
 export async function GET() {
   try {
-    const base = process.cwd();
-    const pathFromRoot = path.join(base, CSV_RELATIVE);
-    const pathFromFrontend = path.join(base, "..", CSV_RELATIVE);
-    let csvPath: string;
-    try {
-      await fs.access(pathFromRoot);
-      csvPath = pathFromRoot;
-    } catch {
-      csvPath = pathFromFrontend;
+    let csvPath: string | null = null;
+    for (const p of CANDIDATES) {
+      try {
+        await fs.access(p);
+        csvPath = p;
+        break;
+      } catch {
+        /* 次の候補を試す */
+      }
+    }
+    if (!csvPath) {
+      throw new Error("energy_mix_percentage.csv not found in any candidate path");
     }
     const csv = await fs.readFile(csvPath, "utf-8");
     const data = parseCsv(csv);

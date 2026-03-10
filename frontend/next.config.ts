@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
   turbopack: {
     root,
   },
+  // Vercel デプロイ時に backend/data を API のバンドルに含める（path は project root = frontend からの相対）
+  outputFileTracingIncludes: {
+    "/api/energy": ["../backend/data/energy_mix_percentage.csv"],
+  },
 };
 
 export default nextConfig;
