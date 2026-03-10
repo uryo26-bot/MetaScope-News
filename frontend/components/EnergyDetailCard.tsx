@@ -6,7 +6,7 @@ import { X, DollarSign, Activity, Leaf } from "lucide-react";
 import { EnergyType, ImportSource } from "../types/types";
 import { ENERGY_DETAILS, ENERGY_NAMES, ENERGY_COLORS } from "../constants/energyDetails";
 import { useImportData } from "../hooks/useImportData";
-import { getIso2FromIso3 } from "../lib/countryFlags";
+import { resolveIso2ForFlag } from "../lib/countryFlags";
 import { ProcessFlow } from "./ProcessFlow";
 import { MetricTooltip } from "./MetricTooltip";
 import { FuriganaText } from "./Furigana";
@@ -230,9 +230,9 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                   >
                     {/* 国名と国旗（棒グラフの左側・固定幅で開始位置を揃える） */}
                     <div className="flex items-center gap-2 w-[10rem] shrink-0">
-                      {source.countryCode && source.countryCode !== "OTHER" && getIso2FromIso3(source.countryCode) ? (
+                      {source.countryCode && source.countryCode !== "OTHER" && resolveIso2ForFlag(source.countryCode) ? (
                         <img
-                          src={`/flags/${getIso2FromIso3(source.countryCode)!.toLowerCase()}.svg`}
+                          src={`/flags/${resolveIso2ForFlag(source.countryCode)!.toLowerCase()}.svg`}
                           alt=""
                           className="h-5 w-8 shrink-0 rounded object-cover"
                           aria-hidden
@@ -279,7 +279,7 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
                     const s = toImportSource(source);
                     const barWidth = Math.min(s.percentage, 100);
                     const pct = Math.round(s.percentage * 10) / 10;
-                    const iso2 = s.countryCode && s.countryCode !== "OTHER" ? getIso2FromIso3(s.countryCode) : null;
+                    const iso2 = s.countryCode && s.countryCode !== "OTHER" ? resolveIso2ForFlag(s.countryCode) : null;
                     return (
                       <div
                         key={s.countryCode || idx}

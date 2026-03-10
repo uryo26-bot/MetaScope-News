@@ -63,3 +63,12 @@ export function getIso3FromIso2(iso2: string): string | null {
 
 /** 国旗画像用にサポートしている ISO 3166-1 alpha-2 コード一覧 */
 export const ISO2_CODES = [...new Set(Object.values(ISO3_TO_ISO2))] as string[];
+
+/** 国旗画像用：ISO2 または ISO3 を渡すと ISO2 を返す（detail.importSources は ISO2、API は ISO3 の混在に対応） */
+export function resolveIso2ForFlag(code: string | undefined): string | null {
+  if (!code) return null;
+  const upper = code.toUpperCase();
+  if (upper.length === 2) return ISO2_CODES.includes(upper) ? upper : null;
+  if (upper.length === 3) return getIso2FromIso3(code);
+  return null;
+}
