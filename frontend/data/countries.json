@@ -1,0 +1,1994 @@
+{
+  "ZWE": {
+    "iso2": "ZW",
+    "iso3": "ZWE",
+    "nameEn": "Zimbabwe",
+    "nameJa": "ジンバブエ",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "KIR": {
+    "iso2": "KI",
+    "iso3": "KIR",
+    "nameEn": "Kiribati",
+    "nameJa": "キリバス",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "GHA": {
+    "iso2": "GH",
+    "iso3": "GHA",
+    "nameEn": "Ghana",
+    "nameJa": "ガーナ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "PRK": {
+    "iso2": "KP",
+    "iso3": "PRK",
+    "nameEn": "North Korea",
+    "nameJa": "北朝鮮",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "ESP": {
+    "iso2": "ES",
+    "iso3": "ESP",
+    "nameEn": "Spain",
+    "nameJa": "スペイン",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "JOR": {
+    "iso2": "JO",
+    "iso3": "JOR",
+    "nameEn": "Jordan",
+    "nameJa": "ヨルダン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "SMR": {
+    "iso2": "SM",
+    "iso3": "SMR",
+    "nameEn": "San Marino",
+    "nameJa": "サンマリノ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "CIV": {
+    "iso2": "CI",
+    "iso3": "CIV",
+    "nameEn": "Ivory Coast",
+    "nameJa": "コートジボワール",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "BRA": {
+    "iso2": "BR",
+    "iso3": "BRA",
+    "nameEn": "Brazil",
+    "nameJa": "ブラジル",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "COL": {
+    "iso2": "CO",
+    "iso3": "COL",
+    "nameEn": "Colombia",
+    "nameJa": "コロンビア",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "HMD": {
+    "iso2": "HM",
+    "iso3": "HMD",
+    "nameEn": "Heard Island and McDonald Islands",
+    "nameJa": "Heard Island and McDonald Islands",
+    "region": "Antarctic",
+    "regionJa": "南極"
+  },
+  "DMA": {
+    "iso2": "DM",
+    "iso3": "DMA",
+    "nameEn": "Dominica",
+    "nameJa": "ドミニカ国",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "DJI": {
+    "iso2": "DJ",
+    "iso3": "DJI",
+    "nameEn": "Djibouti",
+    "nameJa": "ジブチ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "SVN": {
+    "iso2": "SI",
+    "iso3": "SVN",
+    "nameEn": "Slovenia",
+    "nameJa": "スロベニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "AIA": {
+    "iso2": "AI",
+    "iso3": "AIA",
+    "nameEn": "Anguilla",
+    "nameJa": "アンギラ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "MKD": {
+    "iso2": "MK",
+    "iso3": "MKD",
+    "nameEn": "North Macedonia",
+    "nameJa": "北マケドニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "SLB": {
+    "iso2": "SB",
+    "iso3": "SLB",
+    "nameEn": "Solomon Islands",
+    "nameJa": "ソロモン諸島",
+    "region": "Oceania",
+    "regionJa": "オセアニア（メラネシア）"
+  },
+  "TCD": {
+    "iso2": "TD",
+    "iso3": "TCD",
+    "nameEn": "Chad",
+    "nameJa": "チャド",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "BDI": {
+    "iso2": "BI",
+    "iso3": "BDI",
+    "nameEn": "Burundi",
+    "nameJa": "ブルンジ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "ITA": {
+    "iso2": "IT",
+    "iso3": "ITA",
+    "nameEn": "Italy",
+    "nameJa": "イタリア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "ETH": {
+    "iso2": "ET",
+    "iso3": "ETH",
+    "nameEn": "Ethiopia",
+    "nameJa": "エチオピア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "VNM": {
+    "iso2": "VN",
+    "iso3": "VNM",
+    "nameEn": "Vietnam",
+    "nameJa": "ベトナム",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "TGO": {
+    "iso2": "TG",
+    "iso3": "TGO",
+    "nameEn": "Togo",
+    "nameJa": "トーゴ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "MTQ": {
+    "iso2": "MQ",
+    "iso3": "MTQ",
+    "nameEn": "Martinique",
+    "nameJa": "マルティニーク",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "POL": {
+    "iso2": "PL",
+    "iso3": "POL",
+    "nameEn": "Poland",
+    "nameJa": "ポーランド",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "PRT": {
+    "iso2": "PT",
+    "iso3": "PRT",
+    "nameEn": "Portugal",
+    "nameJa": "ポルトガル",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "CXR": {
+    "iso2": "CX",
+    "iso3": "CXR",
+    "nameEn": "Christmas Island",
+    "nameJa": "Christmas Island",
+    "region": "Oceania",
+    "regionJa": "オセアニア（オーストラリア・ニュージーランド）"
+  },
+  "ISR": {
+    "iso2": "IL",
+    "iso3": "ISR",
+    "nameEn": "Israel",
+    "nameJa": "イスラエル",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "ARG": {
+    "iso2": "AR",
+    "iso3": "ARG",
+    "nameEn": "Argentina",
+    "nameJa": "アルゼンチン",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "AFG": {
+    "iso2": "AF",
+    "iso3": "AFG",
+    "nameEn": "Afghanistan",
+    "nameJa": "アフガニスタン",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "PNG": {
+    "iso2": "PG",
+    "iso3": "PNG",
+    "nameEn": "Papua New Guinea",
+    "nameJa": "パプアニューギニア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（メラネシア）"
+  },
+  "NZL": {
+    "iso2": "NZ",
+    "iso3": "NZL",
+    "nameEn": "New Zealand",
+    "nameJa": "ニュージーランド",
+    "region": "Oceania",
+    "regionJa": "オセアニア（オーストラリア・ニュージーランド）"
+  },
+  "SLV": {
+    "iso2": "SV",
+    "iso3": "SLV",
+    "nameEn": "El Salvador",
+    "nameJa": "エルサルバドル",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "CZE": {
+    "iso2": "CZ",
+    "iso3": "CZE",
+    "nameEn": "Czechia",
+    "nameJa": "チェコ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "CMR": {
+    "iso2": "CM",
+    "iso3": "CMR",
+    "nameEn": "Cameroon",
+    "nameJa": "カメルーン",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "YEM": {
+    "iso2": "YE",
+    "iso3": "YEM",
+    "nameEn": "Yemen",
+    "nameJa": "イエメン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "PAN": {
+    "iso2": "PA",
+    "iso3": "PAN",
+    "nameEn": "Panama",
+    "nameJa": "パナマ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "TLS": {
+    "iso2": "TL",
+    "iso3": "TLS",
+    "nameEn": "Timor-Leste",
+    "nameJa": "東ティモール",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "CUB": {
+    "iso2": "CU",
+    "iso3": "CUB",
+    "nameEn": "Cuba",
+    "nameJa": "キューバ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "RUS": {
+    "iso2": "RU",
+    "iso3": "RUS",
+    "nameEn": "Russia",
+    "nameJa": "ロシア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（東ヨーロッパ）"
+  },
+  "ATG": {
+    "iso2": "AG",
+    "iso3": "ATG",
+    "nameEn": "Antigua and Barbuda",
+    "nameJa": "アンティグア・バーブーダ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "BLM": {
+    "iso2": "BL",
+    "iso3": "BLM",
+    "nameEn": "Saint Barthélemy",
+    "nameJa": "サン・バルテルミー",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "BOL": {
+    "iso2": "BO",
+    "iso3": "BOL",
+    "nameEn": "Bolivia",
+    "nameJa": "ボリビア",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "AUS": {
+    "iso2": "AU",
+    "iso3": "AUS",
+    "nameEn": "Australia",
+    "nameJa": "オーストラリア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（オーストラリア・ニュージーランド）"
+  },
+  "UMI": {
+    "iso2": "UM",
+    "iso3": "UMI",
+    "nameEn": "United States Minor Outlying Islands",
+    "nameJa": "合衆国領有小離島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "FJI": {
+    "iso2": "FJ",
+    "iso3": "FJI",
+    "nameEn": "Fiji",
+    "nameJa": "フィジー",
+    "region": "Oceania",
+    "regionJa": "オセアニア（メラネシア）"
+  },
+  "MMR": {
+    "iso2": "MM",
+    "iso3": "MMR",
+    "nameEn": "Myanmar",
+    "nameJa": "ミャンマー",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "STP": {
+    "iso2": "ST",
+    "iso3": "STP",
+    "nameEn": "São Tomé and Príncipe",
+    "nameJa": "サントメ・プリンシペ",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "MDG": {
+    "iso2": "MG",
+    "iso3": "MDG",
+    "nameEn": "Madagascar",
+    "nameJa": "マダガスカル",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "TUV": {
+    "iso2": "TV",
+    "iso3": "TUV",
+    "nameEn": "Tuvalu",
+    "nameJa": "ツバル",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "GGY": {
+    "iso2": "GG",
+    "iso3": "GGY",
+    "nameEn": "Guernsey",
+    "nameJa": "ガーンジー",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "CCK": {
+    "iso2": "CC",
+    "iso3": "CCK",
+    "nameEn": "Cocos (Keeling) Islands",
+    "nameJa": "Cocos (Keeling) Islands",
+    "region": "Oceania",
+    "regionJa": "オセアニア（オーストラリア・ニュージーランド）"
+  },
+  "HUN": {
+    "iso2": "HU",
+    "iso3": "HUN",
+    "nameEn": "Hungary",
+    "nameJa": "ハンガリー",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "EGY": {
+    "iso2": "EG",
+    "iso3": "EGY",
+    "nameEn": "Egypt",
+    "nameJa": "エジプト",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "KGZ": {
+    "iso2": "KG",
+    "iso3": "KGZ",
+    "nameEn": "Kyrgyzstan",
+    "nameJa": "キルギス",
+    "region": "Asia",
+    "regionJa": "アジア（中央アジア）"
+  },
+  "IDN": {
+    "iso2": "ID",
+    "iso3": "IDN",
+    "nameEn": "Indonesia",
+    "nameJa": "インドネシア",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "TUN": {
+    "iso2": "TN",
+    "iso3": "TUN",
+    "nameEn": "Tunisia",
+    "nameJa": "チュニジア",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "ASM": {
+    "iso2": "AS",
+    "iso3": "ASM",
+    "nameEn": "American Samoa",
+    "nameJa": "アメリカ領サモア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "OMN": {
+    "iso2": "OM",
+    "iso3": "OMN",
+    "nameEn": "Oman",
+    "nameJa": "オマーン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "PYF": {
+    "iso2": "PF",
+    "iso3": "PYF",
+    "nameEn": "French Polynesia",
+    "nameJa": "フランス領ポリネシア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "USA": {
+    "iso2": "US",
+    "iso3": "USA",
+    "nameEn": "United States",
+    "nameJa": "アメリカ合衆国",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "FLK": {
+    "iso2": "FK",
+    "iso3": "FLK",
+    "nameEn": "Falkland Islands",
+    "nameJa": "フォークランド諸島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "MAF": {
+    "iso2": "MF",
+    "iso3": "MAF",
+    "nameEn": "Saint Martin",
+    "nameJa": "サン・マルタン",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "SUR": {
+    "iso2": "SR",
+    "iso3": "SUR",
+    "nameEn": "Suriname",
+    "nameJa": "スリナム",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "AZE": {
+    "iso2": "AZ",
+    "iso3": "AZE",
+    "nameEn": "Azerbaijan",
+    "nameJa": "アゼルバイジャン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "NLD": {
+    "iso2": "NL",
+    "iso3": "NLD",
+    "nameEn": "Netherlands",
+    "nameJa": "オランダ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "PSE": {
+    "iso2": "PS",
+    "iso3": "PSE",
+    "nameEn": "Palestine",
+    "nameJa": "パレスチナ",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "SVK": {
+    "iso2": "SK",
+    "iso3": "SVK",
+    "nameEn": "Slovakia",
+    "nameJa": "スロバキア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "UGA": {
+    "iso2": "UG",
+    "iso3": "UGA",
+    "nameEn": "Uganda",
+    "nameJa": "ウガンダ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "CYM": {
+    "iso2": "KY",
+    "iso3": "CYM",
+    "nameEn": "Cayman Islands",
+    "nameJa": "ケイマン諸島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "LCA": {
+    "iso2": "LC",
+    "iso3": "LCA",
+    "nameEn": "Saint Lucia",
+    "nameJa": "セントルシア",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "LBY": {
+    "iso2": "LY",
+    "iso3": "LBY",
+    "nameEn": "Libya",
+    "nameJa": "リビア",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "MNP": {
+    "iso2": "MP",
+    "iso3": "MNP",
+    "nameEn": "Northern Mariana Islands",
+    "nameJa": "Northern Mariana Islands",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "ARM": {
+    "iso2": "AM",
+    "iso3": "ARM",
+    "nameEn": "Armenia",
+    "nameJa": "アルメニア",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "COM": {
+    "iso2": "KM",
+    "iso3": "COM",
+    "nameEn": "Comoros",
+    "nameJa": "コモロ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "GUY": {
+    "iso2": "GY",
+    "iso3": "GUY",
+    "nameEn": "Guyana",
+    "nameJa": "ガイアナ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "ARE": {
+    "iso2": "AE",
+    "iso3": "ARE",
+    "nameEn": "United Arab Emirates",
+    "nameJa": "アラブ首長国連邦",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "TUR": {
+    "iso2": "TR",
+    "iso3": "TUR",
+    "nameEn": "Turkey",
+    "nameJa": "トルコ",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "WSM": {
+    "iso2": "WS",
+    "iso3": "WSM",
+    "nameEn": "Samoa",
+    "nameJa": "サモア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "DEU": {
+    "iso2": "DE",
+    "iso3": "DEU",
+    "nameEn": "Germany",
+    "nameJa": "ドイツ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "GMB": {
+    "iso2": "GM",
+    "iso3": "GMB",
+    "nameEn": "Gambia",
+    "nameJa": "ガンビア",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "MNG": {
+    "iso2": "MN",
+    "iso3": "MNG",
+    "nameEn": "Mongolia",
+    "nameJa": "モンゴル",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "SRB": {
+    "iso2": "RS",
+    "iso3": "SRB",
+    "nameEn": "Serbia",
+    "nameJa": "セルビア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "CHN": {
+    "iso2": "CN",
+    "iso3": "CHN",
+    "nameEn": "China",
+    "nameJa": "中華人民共和国",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "MNE": {
+    "iso2": "ME",
+    "iso3": "MNE",
+    "nameEn": "Montenegro",
+    "nameJa": "モンテネグロ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "GUM": {
+    "iso2": "GU",
+    "iso3": "GUM",
+    "nameEn": "Guam",
+    "nameJa": "グアム",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "KHM": {
+    "iso2": "KH",
+    "iso3": "KHM",
+    "nameEn": "Cambodia",
+    "nameJa": "カンボジア",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "LIE": {
+    "iso2": "LI",
+    "iso3": "LIE",
+    "nameEn": "Liechtenstein",
+    "nameJa": "リヒテンシュタイン",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "SEN": {
+    "iso2": "SN",
+    "iso3": "SEN",
+    "nameEn": "Senegal",
+    "nameJa": "セネガル",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "GBR": {
+    "iso2": "GB",
+    "iso3": "GBR",
+    "nameEn": "United Kingdom",
+    "nameJa": "イギリス",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "BES": {
+    "iso2": "BQ",
+    "iso3": "BES",
+    "nameEn": "Caribbean Netherlands",
+    "nameJa": "カリブ・オランダ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "GUF": {
+    "iso2": "GF",
+    "iso3": "GUF",
+    "nameEn": "French Guiana",
+    "nameJa": "フランス領ギアナ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "BFA": {
+    "iso2": "BF",
+    "iso3": "BFA",
+    "nameEn": "Burkina Faso",
+    "nameJa": "ブルキナファソ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "QAT": {
+    "iso2": "QA",
+    "iso3": "QAT",
+    "nameEn": "Qatar",
+    "nameJa": "カタール",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "UKR": {
+    "iso2": "UA",
+    "iso3": "UKR",
+    "nameEn": "Ukraine",
+    "nameJa": "ウクライナ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（東ヨーロッパ）"
+  },
+  "MEX": {
+    "iso2": "MX",
+    "iso3": "MEX",
+    "nameEn": "Mexico",
+    "nameJa": "メキシコ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "IMN": {
+    "iso2": "IM",
+    "iso3": "IMN",
+    "nameEn": "Isle of Man",
+    "nameJa": "マン島",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "ATA": {
+    "iso2": "AQ",
+    "iso3": "ATA",
+    "nameEn": "Antarctica",
+    "nameJa": "Antarctica",
+    "region": "Antarctic",
+    "regionJa": "南極"
+  },
+  "SGS": {
+    "iso2": "GS",
+    "iso3": "SGS",
+    "nameEn": "South Georgia",
+    "nameJa": "South Georgia",
+    "region": "Antarctic",
+    "regionJa": "南極"
+  },
+  "ESH": {
+    "iso2": "EH",
+    "iso3": "ESH",
+    "nameEn": "Western Sahara",
+    "nameJa": "西サハラ",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "TCA": {
+    "iso2": "TC",
+    "iso3": "TCA",
+    "nameEn": "Turks and Caicos Islands",
+    "nameJa": "タークス・カイコス諸島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "ALB": {
+    "iso2": "AL",
+    "iso3": "ALB",
+    "nameEn": "Albania",
+    "nameJa": "アルバニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "CYP": {
+    "iso2": "CY",
+    "iso3": "CYP",
+    "nameEn": "Cyprus",
+    "nameJa": "キプロス",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "GTM": {
+    "iso2": "GT",
+    "iso3": "GTM",
+    "nameEn": "Guatemala",
+    "nameJa": "グアテマラ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "NRU": {
+    "iso2": "NR",
+    "iso3": "NRU",
+    "nameEn": "Nauru",
+    "nameJa": "ナウル",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "SHN": {
+    "iso2": "SH",
+    "iso3": "SHN",
+    "nameEn": "Saint Helena, Ascension and Tristan da Cunha",
+    "nameJa": "セントヘレナ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "LVA": {
+    "iso2": "LV",
+    "iso3": "LVA",
+    "nameEn": "Latvia",
+    "nameJa": "ラトビア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "COK": {
+    "iso2": "CK",
+    "iso3": "COK",
+    "nameEn": "Cook Islands",
+    "nameJa": "クック諸島",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "MLT": {
+    "iso2": "MT",
+    "iso3": "MLT",
+    "nameEn": "Malta",
+    "nameJa": "マルタ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "PCN": {
+    "iso2": "PN",
+    "iso3": "PCN",
+    "nameEn": "Pitcairn Islands",
+    "nameJa": "ピトケアン諸島",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "KOR": {
+    "iso2": "KR",
+    "iso3": "KOR",
+    "nameEn": "South Korea",
+    "nameJa": "韓国",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "NCL": {
+    "iso2": "NC",
+    "iso3": "NCL",
+    "nameEn": "New Caledonia",
+    "nameJa": "ニューカレドニア",
+    "region": "Oceania",
+    "regionJa": "オセアニア（メラネシア）"
+  },
+  "MOZ": {
+    "iso2": "MZ",
+    "iso3": "MOZ",
+    "nameEn": "Mozambique",
+    "nameJa": "モザンビーク",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "LUX": {
+    "iso2": "LU",
+    "iso3": "LUX",
+    "nameEn": "Luxembourg",
+    "nameJa": "ルクセンブルク",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "IRL": {
+    "iso2": "IE",
+    "iso3": "IRL",
+    "nameEn": "Ireland",
+    "nameJa": "アイルランド",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "NGA": {
+    "iso2": "NG",
+    "iso3": "NGA",
+    "nameEn": "Nigeria",
+    "nameJa": "ナイジェリア",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "BHS": {
+    "iso2": "BS",
+    "iso3": "BHS",
+    "nameEn": "Bahamas",
+    "nameJa": "バハマ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "MHL": {
+    "iso2": "MH",
+    "iso3": "MHL",
+    "nameEn": "Marshall Islands",
+    "nameJa": "マーシャル諸島",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "GRC": {
+    "iso2": "GR",
+    "iso3": "GRC",
+    "nameEn": "Greece",
+    "nameJa": "ギリシャ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "MDV": {
+    "iso2": "MV",
+    "iso3": "MDV",
+    "nameEn": "Maldives",
+    "nameJa": "モルディブ",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "NIU": {
+    "iso2": "NU",
+    "iso3": "NIU",
+    "nameEn": "Niue",
+    "nameJa": "ニウエ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "SYR": {
+    "iso2": "SY",
+    "iso3": "SYR",
+    "nameEn": "Syria",
+    "nameJa": "シリア",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "ECU": {
+    "iso2": "EC",
+    "iso3": "ECU",
+    "nameEn": "Ecuador",
+    "nameJa": "エクアドル",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "TKM": {
+    "iso2": "TM",
+    "iso3": "TKM",
+    "nameEn": "Turkmenistan",
+    "nameJa": "トルクメニスタン",
+    "region": "Asia",
+    "regionJa": "アジア（中央アジア）"
+  },
+  "WLF": {
+    "iso2": "WF",
+    "iso3": "WLF",
+    "nameEn": "Wallis and Futuna",
+    "nameJa": "ウォリス・フツナ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "BRN": {
+    "iso2": "BN",
+    "iso3": "BRN",
+    "nameEn": "Brunei",
+    "nameJa": "ブルネイ",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "UZB": {
+    "iso2": "UZ",
+    "iso3": "UZB",
+    "nameEn": "Uzbekistan",
+    "nameJa": "ウズベキスタン",
+    "region": "Asia",
+    "regionJa": "アジア（中央アジア）"
+  },
+  "BHR": {
+    "iso2": "BH",
+    "iso3": "BHR",
+    "nameEn": "Bahrain",
+    "nameJa": "バーレーン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "VGB": {
+    "iso2": "VG",
+    "iso3": "VGB",
+    "nameEn": "British Virgin Islands",
+    "nameJa": "イギリス領ヴァージン諸島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "MDA": {
+    "iso2": "MD",
+    "iso3": "MDA",
+    "nameEn": "Moldova",
+    "nameJa": "モルドバ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（東ヨーロッパ）"
+  },
+  "MUS": {
+    "iso2": "MU",
+    "iso3": "MUS",
+    "nameEn": "Mauritius",
+    "nameJa": "モーリシャス",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "TON": {
+    "iso2": "TO",
+    "iso3": "TON",
+    "nameEn": "Tonga",
+    "nameJa": "トンガ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "SYC": {
+    "iso2": "SC",
+    "iso3": "SYC",
+    "nameEn": "Seychelles",
+    "nameJa": "セーシェル",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "AGO": {
+    "iso2": "AO",
+    "iso3": "AGO",
+    "nameEn": "Angola",
+    "nameJa": "アンゴラ",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "EST": {
+    "iso2": "EE",
+    "iso3": "EST",
+    "nameEn": "Estonia",
+    "nameJa": "エストニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "BMU": {
+    "iso2": "BM",
+    "iso3": "BMU",
+    "nameEn": "Bermuda",
+    "nameJa": "バミューダ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "PHL": {
+    "iso2": "PH",
+    "iso3": "PHL",
+    "nameEn": "Philippines",
+    "nameJa": "フィリピン",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "VAT": {
+    "iso2": "VA",
+    "iso3": "VAT",
+    "nameEn": "Vatican City",
+    "nameJa": "バチカン市国",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "VEN": {
+    "iso2": "VE",
+    "iso3": "VEN",
+    "nameEn": "Venezuela",
+    "nameJa": "ベネズエラ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "BRB": {
+    "iso2": "BB",
+    "iso3": "BRB",
+    "nameEn": "Barbados",
+    "nameJa": "バルバドス",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "IND": {
+    "iso2": "IN",
+    "iso3": "IND",
+    "nameEn": "India",
+    "nameJa": "インド",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "MLI": {
+    "iso2": "ML",
+    "iso3": "MLI",
+    "nameEn": "Mali",
+    "nameJa": "マリ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "NFK": {
+    "iso2": "NF",
+    "iso3": "NFK",
+    "nameEn": "Norfolk Island",
+    "nameJa": "Norfolk Island",
+    "region": "Oceania",
+    "regionJa": "オセアニア（オーストラリア・ニュージーランド）"
+  },
+  "BLR": {
+    "iso2": "BY",
+    "iso3": "BLR",
+    "nameEn": "Belarus",
+    "nameJa": "ベラルーシ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（東ヨーロッパ）"
+  },
+  "KNA": {
+    "iso2": "KN",
+    "iso3": "KNA",
+    "nameEn": "Saint Kitts and Nevis",
+    "nameJa": "セントクリストファー・ネイビス",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "GLP": {
+    "iso2": "GP",
+    "iso3": "GLP",
+    "nameEn": "Guadeloupe",
+    "nameJa": "グアドループ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "LTU": {
+    "iso2": "LT",
+    "iso3": "LTU",
+    "nameEn": "Lithuania",
+    "nameJa": "リトアニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "MSR": {
+    "iso2": "MS",
+    "iso3": "MSR",
+    "nameEn": "Montserrat",
+    "nameJa": "モントセラト",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "NER": {
+    "iso2": "NE",
+    "iso3": "NER",
+    "nameEn": "Niger",
+    "nameJa": "ニジェール",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "GNQ": {
+    "iso2": "GQ",
+    "iso3": "GNQ",
+    "nameEn": "Equatorial Guinea",
+    "nameJa": "赤道ギニア",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "IRQ": {
+    "iso2": "IQ",
+    "iso3": "IRQ",
+    "nameEn": "Iraq",
+    "nameJa": "イラク",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "MRT": {
+    "iso2": "MR",
+    "iso3": "MRT",
+    "nameEn": "Mauritania",
+    "nameJa": "モーリタニア",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "TWN": {
+    "iso2": "TW",
+    "iso3": "TWN",
+    "nameEn": "Taiwan",
+    "nameJa": "台湾",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "GEO": {
+    "iso2": "GE",
+    "iso3": "GEO",
+    "nameEn": "Georgia",
+    "nameJa": "ジョージア",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "PRI": {
+    "iso2": "PR",
+    "iso3": "PRI",
+    "nameEn": "Puerto Rico",
+    "nameJa": "プエルトリコ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "PRY": {
+    "iso2": "PY",
+    "iso3": "PRY",
+    "nameEn": "Paraguay",
+    "nameJa": "パラグアイ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "SLE": {
+    "iso2": "SL",
+    "iso3": "SLE",
+    "nameEn": "Sierra Leone",
+    "nameJa": "シエラレオネ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "BWA": {
+    "iso2": "BW",
+    "iso3": "BWA",
+    "nameEn": "Botswana",
+    "nameJa": "ボツワナ",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "MYT": {
+    "iso2": "YT",
+    "iso3": "MYT",
+    "nameEn": "Mayotte",
+    "nameJa": "マヨット",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "FIN": {
+    "iso2": "FI",
+    "iso3": "FIN",
+    "nameEn": "Finland",
+    "nameJa": "フィンランド",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "JEY": {
+    "iso2": "JE",
+    "iso3": "JEY",
+    "nameEn": "Jersey",
+    "nameJa": "ジャージー",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "FRO": {
+    "iso2": "FO",
+    "iso3": "FRO",
+    "nameEn": "Faroe Islands",
+    "nameJa": "フェロー諸島",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "SWE": {
+    "iso2": "SE",
+    "iso3": "SWE",
+    "nameEn": "Sweden",
+    "nameJa": "スウェーデン",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "LKA": {
+    "iso2": "LK",
+    "iso3": "LKA",
+    "nameEn": "Sri Lanka",
+    "nameJa": "スリランカ",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "THA": {
+    "iso2": "TH",
+    "iso3": "THA",
+    "nameEn": "Thailand",
+    "nameJa": "タイ",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "GRL": {
+    "iso2": "GL",
+    "iso3": "GRL",
+    "nameEn": "Greenland",
+    "nameJa": "グリーンランド",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "BGR": {
+    "iso2": "BG",
+    "iso3": "BGR",
+    "nameEn": "Bulgaria",
+    "nameJa": "ブルガリア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "KEN": {
+    "iso2": "KE",
+    "iso3": "KEN",
+    "nameEn": "Kenya",
+    "nameJa": "ケニア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "HKG": {
+    "iso2": "HK",
+    "iso3": "HKG",
+    "nameEn": "Hong Kong",
+    "nameJa": "香港",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "ROU": {
+    "iso2": "RO",
+    "iso3": "ROU",
+    "nameEn": "Romania",
+    "nameJa": "ルーマニア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "MWI": {
+    "iso2": "MW",
+    "iso3": "MWI",
+    "nameEn": "Malawi",
+    "nameJa": "マラウイ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "COG": {
+    "iso2": "CG",
+    "iso3": "COG",
+    "nameEn": "Republic of the Congo",
+    "nameJa": "コンゴ共和国",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "HND": {
+    "iso2": "HN",
+    "iso3": "HND",
+    "nameEn": "Honduras",
+    "nameJa": "ホンジュラス",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "ABW": {
+    "iso2": "AW",
+    "iso3": "ABW",
+    "nameEn": "Aruba",
+    "nameJa": "アルバ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "MCO": {
+    "iso2": "MC",
+    "iso3": "MCO",
+    "nameEn": "Monaco",
+    "nameJa": "モナコ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "BVT": {
+    "iso2": "BV",
+    "iso3": "BVT",
+    "nameEn": "Bouvet Island",
+    "nameJa": "Bouvet Island",
+    "region": "Antarctic",
+    "regionJa": "南極"
+  },
+  "ZMB": {
+    "iso2": "ZM",
+    "iso3": "ZMB",
+    "nameEn": "Zambia",
+    "nameJa": "ザンビア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "AND": {
+    "iso2": "AD",
+    "iso3": "AND",
+    "nameEn": "Andorra",
+    "nameJa": "アンドラ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "LBR": {
+    "iso2": "LR",
+    "iso3": "LBR",
+    "nameEn": "Liberia",
+    "nameJa": "リベリア",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "TZA": {
+    "iso2": "TZ",
+    "iso3": "TZA",
+    "nameEn": "Tanzania",
+    "nameJa": "タンザニア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "SPM": {
+    "iso2": "PM",
+    "iso3": "SPM",
+    "nameEn": "Saint Pierre and Miquelon",
+    "nameJa": "サンピエール島・ミクロン島",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "IRN": {
+    "iso2": "IR",
+    "iso3": "IRN",
+    "nameEn": "Iran",
+    "nameJa": "イラン",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "ISL": {
+    "iso2": "IS",
+    "iso3": "ISL",
+    "nameEn": "Iceland",
+    "nameJa": "アイスランド",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "GIN": {
+    "iso2": "GN",
+    "iso3": "GIN",
+    "nameEn": "Guinea",
+    "nameJa": "ギニア",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "SJM": {
+    "iso2": "SJ",
+    "iso3": "SJM",
+    "nameEn": "Svalbard and Jan Mayen",
+    "nameJa": "Svalbard and Jan Mayen",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "KWT": {
+    "iso2": "KW",
+    "iso3": "KWT",
+    "nameEn": "Kuwait",
+    "nameJa": "クウェート",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "MAR": {
+    "iso2": "MA",
+    "iso3": "MAR",
+    "nameEn": "Morocco",
+    "nameJa": "モロッコ",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "NAM": {
+    "iso2": "NA",
+    "iso3": "NAM",
+    "nameEn": "Namibia",
+    "nameJa": "ナミビア",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "TJK": {
+    "iso2": "TJ",
+    "iso3": "TJK",
+    "nameEn": "Tajikistan",
+    "nameJa": "タジキスタン",
+    "region": "Asia",
+    "regionJa": "アジア（中央アジア）"
+  },
+  "VUT": {
+    "iso2": "VU",
+    "iso3": "VUT",
+    "nameEn": "Vanuatu",
+    "nameJa": "バヌアツ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（メラネシア）"
+  },
+  "JAM": {
+    "iso2": "JM",
+    "iso3": "JAM",
+    "nameEn": "Jamaica",
+    "nameJa": "ジャマイカ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "PLW": {
+    "iso2": "PW",
+    "iso3": "PLW",
+    "nameEn": "Palau",
+    "nameJa": "パラオ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "URY": {
+    "iso2": "UY",
+    "iso3": "URY",
+    "nameEn": "Uruguay",
+    "nameJa": "ウルグアイ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "BTN": {
+    "iso2": "BT",
+    "iso3": "BTN",
+    "nameEn": "Bhutan",
+    "nameJa": "ブータン",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "COD": {
+    "iso2": "CD",
+    "iso3": "COD",
+    "nameEn": "DR Congo",
+    "nameJa": "コンゴ民主共和国",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "KAZ": {
+    "iso2": "KZ",
+    "iso3": "KAZ",
+    "nameEn": "Kazakhstan",
+    "nameJa": "カザフスタン",
+    "region": "Asia",
+    "regionJa": "アジア（中央アジア）"
+  },
+  "ERI": {
+    "iso2": "ER",
+    "iso3": "ERI",
+    "nameEn": "Eritrea",
+    "nameJa": "エリトリア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "GIB": {
+    "iso2": "GI",
+    "iso3": "GIB",
+    "nameEn": "Gibraltar",
+    "nameJa": "ジブラルタル",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南ヨーロッパ）"
+  },
+  "GAB": {
+    "iso2": "GA",
+    "iso3": "GAB",
+    "nameEn": "Gabon",
+    "nameJa": "ガボン",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "PER": {
+    "iso2": "PE",
+    "iso3": "PER",
+    "nameEn": "Peru",
+    "nameJa": "ペルー",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "DNK": {
+    "iso2": "DK",
+    "iso3": "DNK",
+    "nameEn": "Denmark",
+    "nameJa": "デンマーク",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "HRV": {
+    "iso2": "HR",
+    "iso3": "HRV",
+    "nameEn": "Croatia",
+    "nameJa": "クロアチア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "CUW": {
+    "iso2": "CW",
+    "iso3": "CUW",
+    "nameEn": "Curaçao",
+    "nameJa": "キュラソー",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "IOT": {
+    "iso2": "IO",
+    "iso3": "IOT",
+    "nameEn": "British Indian Ocean Territory",
+    "nameJa": "British Indian Ocean Territory",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "NOR": {
+    "iso2": "NO",
+    "iso3": "NOR",
+    "nameEn": "Norway",
+    "nameJa": "ノルウェー",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  },
+  "LSO": {
+    "iso2": "LS",
+    "iso3": "LSO",
+    "nameEn": "Lesotho",
+    "nameJa": "レソト",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "AUT": {
+    "iso2": "AT",
+    "iso3": "AUT",
+    "nameEn": "Austria",
+    "nameJa": "オーストリア",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（中央ヨーロッパ）"
+  },
+  "CHE": {
+    "iso2": "CH",
+    "iso3": "CHE",
+    "nameEn": "Switzerland",
+    "nameJa": "スイス",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "BLZ": {
+    "iso2": "BZ",
+    "iso3": "BLZ",
+    "nameEn": "Belize",
+    "nameJa": "ベリーズ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "BEL": {
+    "iso2": "BE",
+    "iso3": "BEL",
+    "nameEn": "Belgium",
+    "nameJa": "ベルギー",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "NIC": {
+    "iso2": "NI",
+    "iso3": "NIC",
+    "nameEn": "Nicaragua",
+    "nameJa": "ニカラグア",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "VIR": {
+    "iso2": "VI",
+    "iso3": "VIR",
+    "nameEn": "United States Virgin Islands",
+    "nameJa": "United States Virgin Islands",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "SGP": {
+    "iso2": "SG",
+    "iso3": "SGP",
+    "nameEn": "Singapore",
+    "nameJa": "シンガポール",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "DOM": {
+    "iso2": "DO",
+    "iso3": "DOM",
+    "nameEn": "Dominican Republic",
+    "nameJa": "ドミニカ共和国",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "LAO": {
+    "iso2": "LA",
+    "iso3": "LAO",
+    "nameEn": "Laos",
+    "nameJa": "ラオス",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "CHL": {
+    "iso2": "CL",
+    "iso3": "CHL",
+    "nameEn": "Chile",
+    "nameJa": "チリ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（南アメリカ）"
+  },
+  "CRI": {
+    "iso2": "CR",
+    "iso3": "CRI",
+    "nameEn": "Costa Rica",
+    "nameJa": "コスタリカ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（中央アメリカ）"
+  },
+  "RWA": {
+    "iso2": "RW",
+    "iso3": "RWA",
+    "nameEn": "Rwanda",
+    "nameJa": "ルワンダ",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "TTO": {
+    "iso2": "TT",
+    "iso3": "TTO",
+    "nameEn": "Trinidad and Tobago",
+    "nameJa": "トリニダード・トバゴ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "MYS": {
+    "iso2": "MY",
+    "iso3": "MYS",
+    "nameEn": "Malaysia",
+    "nameJa": "マレーシア",
+    "region": "Asia",
+    "regionJa": "アジア（東南アジア）"
+  },
+  "ZAF": {
+    "iso2": "ZA",
+    "iso3": "ZAF",
+    "nameEn": "South Africa",
+    "nameJa": "南アフリカ",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "SAU": {
+    "iso2": "SA",
+    "iso3": "SAU",
+    "nameEn": "Saudi Arabia",
+    "nameJa": "サウジアラビア",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "HTI": {
+    "iso2": "HT",
+    "iso3": "HTI",
+    "nameEn": "Haiti",
+    "nameJa": "ハイチ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "ATF": {
+    "iso2": "TF",
+    "iso3": "ATF",
+    "nameEn": "French Southern and Antarctic Lands",
+    "nameJa": "French Southern and Antarctic Lands",
+    "region": "Antarctic",
+    "regionJa": "南極"
+  },
+  "TKL": {
+    "iso2": "TK",
+    "iso3": "TKL",
+    "nameEn": "Tokelau",
+    "nameJa": "トケラウ",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ポリネシア）"
+  },
+  "SOM": {
+    "iso2": "SO",
+    "iso3": "SOM",
+    "nameEn": "Somalia",
+    "nameJa": "ソマリア",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "JPN": {
+    "iso2": "JP",
+    "iso3": "JPN",
+    "nameEn": "Japan",
+    "nameJa": "日本",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "MAC": {
+    "iso2": "MO",
+    "iso3": "MAC",
+    "nameEn": "Macau",
+    "nameJa": "マカオ",
+    "region": "Asia",
+    "regionJa": "アジア（東アジア）"
+  },
+  "SDN": {
+    "iso2": "SD",
+    "iso3": "SDN",
+    "nameEn": "Sudan",
+    "nameJa": "スーダン",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "DZA": {
+    "iso2": "DZ",
+    "iso3": "DZA",
+    "nameEn": "Algeria",
+    "nameJa": "アルジェリア",
+    "region": "Africa",
+    "regionJa": "アフリカ（北アフリカ）"
+  },
+  "SWZ": {
+    "iso2": "SZ",
+    "iso3": "SWZ",
+    "nameEn": "Eswatini",
+    "nameJa": "エスワティニ",
+    "region": "Africa",
+    "regionJa": "アフリカ（南部アフリカ）"
+  },
+  "FRA": {
+    "iso2": "FR",
+    "iso3": "FRA",
+    "nameEn": "France",
+    "nameJa": "フランス",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（西ヨーロッパ）"
+  },
+  "SXM": {
+    "iso2": "SX",
+    "iso3": "SXM",
+    "nameEn": "Sint Maarten",
+    "nameJa": "シント・マールテン",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "BGD": {
+    "iso2": "BD",
+    "iso3": "BGD",
+    "nameEn": "Bangladesh",
+    "nameJa": "バングラデシュ",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "CAF": {
+    "iso2": "CF",
+    "iso3": "CAF",
+    "nameEn": "Central African Republic",
+    "nameJa": "中央アフリカ共和国",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "CAN": {
+    "iso2": "CA",
+    "iso3": "CAN",
+    "nameEn": "Canada",
+    "nameJa": "カナダ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（北アメリカ）"
+  },
+  "REU": {
+    "iso2": "RE",
+    "iso3": "REU",
+    "nameEn": "Réunion",
+    "nameJa": "レユニオン",
+    "region": "Africa",
+    "regionJa": "アフリカ（東アフリカ）"
+  },
+  "VCT": {
+    "iso2": "VC",
+    "iso3": "VCT",
+    "nameEn": "Saint Vincent and the Grenadines",
+    "nameJa": "セントビンセント・グレナディーン",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "FSM": {
+    "iso2": "FM",
+    "iso3": "FSM",
+    "nameEn": "Micronesia",
+    "nameJa": "ミクロネシア連邦",
+    "region": "Oceania",
+    "regionJa": "オセアニア（ミクロネシア）"
+  },
+  "CPV": {
+    "iso2": "CV",
+    "iso3": "CPV",
+    "nameEn": "Cape Verde",
+    "nameJa": "カーボベルデ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "GRD": {
+    "iso2": "GD",
+    "iso3": "GRD",
+    "nameEn": "Grenada",
+    "nameJa": "グレナダ",
+    "region": "Americas",
+    "regionJa": "アメリカ州（カリブ海）"
+  },
+  "PAK": {
+    "iso2": "PK",
+    "iso3": "PAK",
+    "nameEn": "Pakistan",
+    "nameJa": "パキスタン",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "NPL": {
+    "iso2": "NP",
+    "iso3": "NPL",
+    "nameEn": "Nepal",
+    "nameJa": "ネパール",
+    "region": "Asia",
+    "regionJa": "アジア（南アジア）"
+  },
+  "BIH": {
+    "iso2": "BA",
+    "iso3": "BIH",
+    "nameEn": "Bosnia and Herzegovina",
+    "nameJa": "ボスニア・ヘルツェゴビナ",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（南東ヨーロッパ）"
+  },
+  "SSD": {
+    "iso2": "SS",
+    "iso3": "SSD",
+    "nameEn": "South Sudan",
+    "nameJa": "南スーダン",
+    "region": "Africa",
+    "regionJa": "アフリカ（中部アフリカ）"
+  },
+  "GNB": {
+    "iso2": "GW",
+    "iso3": "GNB",
+    "nameEn": "Guinea-Bissau",
+    "nameJa": "ギニアビサウ",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "BEN": {
+    "iso2": "BJ",
+    "iso3": "BEN",
+    "nameEn": "Benin",
+    "nameJa": "ベナン",
+    "region": "Africa",
+    "regionJa": "アフリカ（西アフリカ）"
+  },
+  "LBN": {
+    "iso2": "LB",
+    "iso3": "LBN",
+    "nameEn": "Lebanon",
+    "nameJa": "レバノン",
+    "region": "Asia",
+    "regionJa": "アジア（西アジア）"
+  },
+  "ALA": {
+    "iso2": "AX",
+    "iso3": "ALA",
+    "nameEn": "Åland Islands",
+    "nameJa": "Åland Islands",
+    "region": "Europe",
+    "regionJa": "ヨーロッパ（北ヨーロッパ）"
+  }
+}

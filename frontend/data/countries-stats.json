@@ -1,0 +1,787 @@
+{
+  "2024": {
+    "ZWE": {
+      "population": 17073087
+    },
+    "KIR": {
+      "population": 120740
+    },
+    "GHA": {
+      "population": 33742380,
+      "gdp": 76
+    },
+    "PRK": {
+      "population": 25950000
+    },
+    "ESP": {
+      "population": 49315949
+    },
+    "JOR": {
+      "population": 11734000
+    },
+    "SMR": {
+      "population": 34132
+    },
+    "CIV": {
+      "population": 31719275,
+      "gdp": 70
+    },
+    "BRA": {
+      "population": 213421037,
+      "gdp": 2170
+    },
+    "COL": {
+      "population": 53057212,
+      "gdp": 363
+    },
+    "HMD": {
+      "population": 0
+    },
+    "DMA": {
+      "population": 67408
+    },
+    "DJI": {
+      "population": 1066809
+    },
+    "SVN": {
+      "population": 2130638
+    },
+    "AIA": {
+      "population": 16010
+    },
+    "MKD": {
+      "population": 1822612
+    },
+    "SLB": {
+      "population": 750325
+    },
+    "TCD": {
+      "population": 19340757
+    },
+    "BDI": {
+      "population": 12332788
+    },
+    "ITA": {
+      "population": 58927633,
+      "gdp": 2140
+    },
+    "ETH": {
+      "population": 111652998
+    },
+    "VNM": {
+      "population": 101343800
+    },
+    "TGO": {
+      "population": 8095498
+    },
+    "MTQ": {
+      "population": 349925
+    },
+    "POL": {
+      "population": 37392000
+    },
+    "PRT": {
+      "population": 10749635
+    },
+    "CXR": {
+      "population": 1692
+    },
+    "ISR": {
+      "population": 10134800
+    },
+    "ARG": {
+      "population": 46735004,
+      "gdp": 622
+    },
+    "AFG": {
+      "population": 43844000
+    },
+    "PNG": {
+      "population": 11781559
+    },
+    "NZL": {
+      "population": 5324700
+    },
+    "SLV": {
+      "population": 6029976
+    },
+    "CZE": {
+      "population": 10882341
+    },
+    "CMR": {
+      "population": 29442327
+    },
+    "YEM": {
+      "population": 32684503
+    },
+    "PAN": {
+      "population": 4064780
+    },
+    "TLS": {
+      "population": 1391221
+    },
+    "CUB": {
+      "population": 9748007
+    },
+    "RUS": {
+      "population": 146028325,
+      "gdp": 2240
+    },
+    "ATG": {
+      "population": 103603
+    },
+    "BLM": {
+      "population": 10562
+    },
+    "BOL": {
+      "population": 11365333,
+      "gdp": 44
+    },
+    "AUS": {
+      "population": 27536874,
+      "gdp": 1670
+    },
+    "UMI": {
+      "population": 0
+    },
+    "FJI": {
+      "population": 900869
+    },
+    "MMR": {
+      "population": 51316756
+    },
+    "STP": {
+      "population": 209607
+    },
+    "MDG": {
+      "population": 31727042
+    },
+    "TUV": {
+      "population": 10643
+    },
+    "GGY": {
+      "population": 64781
+    },
+    "CCK": {
+      "population": 593
+    },
+    "HUN": {
+      "population": 9539502
+    },
+    "EGY": {
+      "population": 107271260
+    },
+    "KGZ": {
+      "population": 7281800
+    },
+    "IDN": {
+      "population": 284438782,
+      "gdp": 1380
+    },
+    "TUN": {
+      "population": 11972169
+    },
+    "ASM": {
+      "population": 49710
+    },
+    "OMN": {
+      "population": 5343630
+    },
+    "PYF": {
+      "population": 279500
+    },
+    "USA": {
+      "population": 340110988,
+      "gdp": 27360
+    },
+    "FLK": {
+      "population": 3662
+    },
+    "MAF": {
+      "population": 31496
+    },
+    "SUR": {
+      "population": 616500
+    },
+    "AZE": {
+      "population": 10241722
+    },
+    "NLD": {
+      "population": 18100436,
+      "gdp": 1010
+    },
+    "PSE": {
+      "population": 5483450
+    },
+    "SVK": {
+      "population": 5413813
+    },
+    "UGA": {
+      "population": 45905417
+    },
+    "CYM": {
+      "population": 84738
+    },
+    "LCA": {
+      "population": 184100
+    },
+    "LBY": {
+      "population": 7459000
+    },
+    "MNP": {
+      "population": 47329
+    },
+    "ARM": {
+      "population": 3076200
+    },
+    "COM": {
+      "population": 919901
+    },
+    "GUY": {
+      "population": 772975
+    },
+    "ARE": {
+      "population": 11294243
+    },
+    "TUR": {
+      "population": 85664944
+    },
+    "WSM": {
+      "population": 205557
+    },
+    "DEU": {
+      "population": 83491249,
+      "gdp": 4080
+    },
+    "GMB": {
+      "population": 2422712
+    },
+    "MNG": {
+      "population": 3544835
+    },
+    "SRB": {
+      "population": 6567783
+    },
+    "CHN": {
+      "population": 1408280000,
+      "gdp": 17780
+    },
+    "MNE": {
+      "population": 623327
+    },
+    "GUM": {
+      "population": 153836
+    },
+    "KHM": {
+      "population": 17577760
+    },
+    "LIE": {
+      "population": 40900
+    },
+    "SEN": {
+      "population": 18593258
+    },
+    "GBR": {
+      "population": 69281437,
+      "gdp": 3080
+    },
+    "BES": {
+      "population": 31980
+    },
+    "GUF": {
+      "population": 292354
+    },
+    "BFA": {
+      "population": 24070553
+    },
+    "QAT": {
+      "population": 3173024
+    },
+    "UKR": {
+      "population": 32862000
+    },
+    "MEX": {
+      "population": 130575786,
+      "gdp": 1590
+    },
+    "IMN": {
+      "population": 84530
+    },
+    "ATA": {
+      "population": 1300
+    },
+    "SGS": {
+      "population": 0
+    },
+    "ESH": {
+      "population": 600904
+    },
+    "TCA": {
+      "population": 50828
+    },
+    "ALB": {
+      "population": 2363314
+    },
+    "CYP": {
+      "population": 1442614
+    },
+    "GTM": {
+      "population": 18079810
+    },
+    "NRU": {
+      "population": 11680
+    },
+    "SHN": {
+      "population": 5651
+    },
+    "LVA": {
+      "population": 1829000
+    },
+    "COK": {
+      "population": 15040
+    },
+    "MLT": {
+      "population": 574250
+    },
+    "PCN": {
+      "population": 35
+    },
+    "KOR": {
+      "population": 51159889,
+      "gdp": 1730
+    },
+    "NCL": {
+      "population": 264596
+    },
+    "MOZ": {
+      "population": 34090466
+    },
+    "LUX": {
+      "population": 681973
+    },
+    "IRL": {
+      "population": 5458600
+    },
+    "NGA": {
+      "population": 223800000
+    },
+    "BHS": {
+      "population": 398165
+    },
+    "MHL": {
+      "population": 42418
+    },
+    "GRC": {
+      "population": 10400720
+    },
+    "MDV": {
+      "population": 515132
+    },
+    "NIU": {
+      "population": 1681
+    },
+    "SYR": {
+      "population": 25620000
+    },
+    "ECU": {
+      "population": 18103660,
+      "gdp": 118
+    },
+    "TKM": {
+      "population": 7057841
+    },
+    "WLF": {
+      "population": 11620
+    },
+    "BRN": {
+      "population": 455500
+    },
+    "UZB": {
+      "population": 37859698
+    },
+    "BHR": {
+      "population": 1594654
+    },
+    "VGB": {
+      "population": 39471
+    },
+    "MDA": {
+      "population": 2749076
+    },
+    "MUS": {
+      "population": 1243741
+    },
+    "TON": {
+      "population": 100179
+    },
+    "SYC": {
+      "population": 122729
+    },
+    "AGO": {
+      "population": 36170961
+    },
+    "EST": {
+      "population": 1369995
+    },
+    "BMU": {
+      "population": 64055
+    },
+    "PHL": {
+      "population": 114123600,
+      "gdp": 435
+    },
+    "VAT": {
+      "population": 882
+    },
+    "VEN": {
+      "population": 28517000
+    },
+    "BRB": {
+      "population": 267800
+    },
+    "IND": {
+      "population": 1417492000,
+      "gdp": 3540
+    },
+    "MLI": {
+      "population": 22395489
+    },
+    "NFK": {
+      "population": 2188
+    },
+    "BLR": {
+      "population": 9109280
+    },
+    "KNA": {
+      "population": 51320
+    },
+    "GLP": {
+      "population": 378561
+    },
+    "LTU": {
+      "population": 2894886
+    },
+    "MSR": {
+      "population": 4386
+    },
+    "NER": {
+      "population": 26312034
+    },
+    "GNQ": {
+      "population": 1668768
+    },
+    "IRQ": {
+      "population": 46118793
+    },
+    "MRT": {
+      "population": 4927532
+    },
+    "TWN": {
+      "population": 23317031
+    },
+    "GEO": {
+      "population": 4000921
+    },
+    "PRI": {
+      "population": 3203295
+    },
+    "PRY": {
+      "population": 6109644
+    },
+    "SLE": {
+      "population": 9077691
+    },
+    "BWA": {
+      "population": 2359609
+    },
+    "MYT": {
+      "population": 320901
+    },
+    "FIN": {
+      "population": 5650325
+    },
+    "JEY": {
+      "population": 103267
+    },
+    "FRO": {
+      "population": 54885
+    },
+    "SWE": {
+      "population": 10605098
+    },
+    "LKA": {
+      "population": 21763170
+    },
+    "THA": {
+      "population": 65859640,
+      "gdp": 512
+    },
+    "GRL": {
+      "population": 56542
+    },
+    "BGR": {
+      "population": 6437360
+    },
+    "KEN": {
+      "population": 53330978
+    },
+    "HKG": {
+      "population": 7527500
+    },
+    "ROU": {
+      "population": 19036031
+    },
+    "MWI": {
+      "population": 20734262
+    },
+    "COG": {
+      "population": 6142180
+    },
+    "HND": {
+      "population": 9892632
+    },
+    "ABW": {
+      "population": 107566
+    },
+    "MCO": {
+      "population": 38423
+    },
+    "BVT": {
+      "population": 0
+    },
+    "ZMB": {
+      "population": 19693423,
+      "gdp": 29
+    },
+    "AND": {
+      "population": 88406
+    },
+    "LBR": {
+      "population": 5248621
+    },
+    "TZA": {
+      "population": 68153004
+    },
+    "SPM": {
+      "population": 5819
+    },
+    "IRN": {
+      "population": 85961000
+    },
+    "ISL": {
+      "population": 391810
+    },
+    "GIN": {
+      "population": 14363931
+    },
+    "SJM": {
+      "population": 2530
+    },
+    "KWT": {
+      "population": 4881254
+    },
+    "MAR": {
+      "population": 36828330
+    },
+    "NAM": {
+      "population": 3022401
+    },
+    "TJK": {
+      "population": 10499000
+    },
+    "VUT": {
+      "population": 321409
+    },
+    "JAM": {
+      "population": 2825544
+    },
+    "PLW": {
+      "population": 16733
+    },
+    "URY": {
+      "population": 3499451
+    },
+    "BTN": {
+      "population": 784043
+    },
+    "COD": {
+      "population": 112832000,
+      "gdp": 67
+    },
+    "KAZ": {
+      "population": 20426568
+    },
+    "ERI": {
+      "population": 3607000
+    },
+    "GIB": {
+      "population": 38000
+    },
+    "GAB": {
+      "population": 2469296
+    },
+    "PER": {
+      "population": 34350244,
+      "gdp": 265
+    },
+    "DNK": {
+      "population": 6011488
+    },
+    "HRV": {
+      "population": 3866233
+    },
+    "CUW": {
+      "population": 156115
+    },
+    "IOT": {
+      "population": 0
+    },
+    "NOR": {
+      "population": 5606944
+    },
+    "LSO": {
+      "population": 2116427
+    },
+    "AUT": {
+      "population": 9200931
+    },
+    "CHE": {
+      "population": 9082848
+    },
+    "BLZ": {
+      "population": 417634
+    },
+    "BEL": {
+      "population": 11825551,
+      "gdp": 605
+    },
+    "NIC": {
+      "population": 6803886
+    },
+    "VIR": {
+      "population": 87146
+    },
+    "SGP": {
+      "population": 6110200
+    },
+    "DOM": {
+      "population": 10771504
+    },
+    "LAO": {
+      "population": 7647000
+    },
+    "CHL": {
+      "population": 20206953,
+      "gdp": 301
+    },
+    "CRI": {
+      "population": 5309625
+    },
+    "RWA": {
+      "population": 14104969
+    },
+    "TTO": {
+      "population": 1367764
+    },
+    "MYS": {
+      "population": 34231700,
+      "gdp": 430
+    },
+    "ZAF": {
+      "population": 63100945,
+      "gdp": 405
+    },
+    "SAU": {
+      "population": 35300280,
+      "gdp": 1110
+    },
+    "HTI": {
+      "population": 11867032
+    },
+    "ATF": {
+      "population": 400
+    },
+    "TKL": {
+      "population": 2608
+    },
+    "SOM": {
+      "population": 19655000
+    },
+    "JPN": {
+      "population": 123210000,
+      "gdp": 4230
+    },
+    "MAC": {
+      "population": 685900
+    },
+    "SDN": {
+      "population": 51662000
+    },
+    "DZA": {
+      "population": 47400000
+    },
+    "SWZ": {
+      "population": 1235549
+    },
+    "FRA": {
+      "population": 66351959,
+      "gdp": 2780
+    },
+    "SXM": {
+      "population": 41349
+    },
+    "BGD": {
+      "population": 169828911
+    },
+    "CAF": {
+      "population": 6470307
+    },
+    "CAN": {
+      "population": 41651653,
+      "gdp": 2140
+    },
+    "REU": {
+      "population": 896175
+    },
+    "VCT": {
+      "population": 110872
+    },
+    "FSM": {
+      "population": 105564
+    },
+    "CPV": {
+      "population": 491233
+    },
+    "GRD": {
+      "population": 109021
+    },
+    "PAK": {
+      "population": 241499431
+    },
+    "NPL": {
+      "population": 29911840
+    },
+    "BIH": {
+      "population": 3422000
+    },
+    "SSD": {
+      "population": 15786898
+    },
+    "GNB": {
+      "population": 1781308
+    },
+    "BEN": {
+      "population": 13224860
+    },
+    "LBN": {
+      "population": 5490000
+    },
+    "ALA": {
+      "population": 30654
+    }
+  },
+  "meta": {
+    "defaultYear": "2024",
+    "description": "年度別の人口・GDPなど。新年度データ追加時は当該年度のオブジェクトを追加し、defaultYear を更新。"
+  }
+}

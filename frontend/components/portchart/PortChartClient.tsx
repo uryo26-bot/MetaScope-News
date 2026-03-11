@@ -18,10 +18,8 @@ import { getMinesByResourceAndCountry, hasMineDataForResource, getAllMinesForRes
 import { REFINING_HUBS } from "../../data/refiningHubs";
 import { getResourceById, resourceList } from "../../data/resources";
 import { getCropById, cropList } from "../../data/crops";
-import countriesInfoJson from "../../data/countries-info.json";
-
-/** ISO3 → 基礎情報（人口・GDP は countries-info.json の値。GDP は十億USD） */
-const countriesInfo = countriesInfoJson as Record<string, { nameJa?: string; population?: number; gdp?: number }>;
+import { getCountryByIso3 } from "../../lib/countries";
+import { getCountryWithStats } from "../../lib/countriesStats";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
@@ -52,51 +50,6 @@ function formatPopulationJa(n: number): string {
     return `${man}万${rest}人`;
   }
   return `${n}人`;
-}
-
-/** REST Countries の region を日本語に */
-const REGION_JA: Record<string, string> = {
-  Africa: "アフリカ",
-  Americas: "アメリカ州",
-  Asia: "アジア",
-  Europe: "ヨーロッパ",
-  Oceania: "オセアニア",
-  Antarctic: "南極",
-};
-/** REST Countries の subregion を日本語に */
-const SUBREGION_JA: Record<string, string> = {
-  "Eastern Asia": "東アジア",
-  "South-Eastern Asia": "東南アジア",
-  "Southern Asia": "南アジア",
-  "Western Asia": "西アジア",
-  "Central Asia": "中央アジア",
-  "Northern Europe": "北ヨーロッパ",
-  "Western Europe": "西ヨーロッパ",
-  "Southern Europe": "南ヨーロッパ",
-  "Eastern Europe": "東ヨーロッパ",
-  "Central Europe": "中央ヨーロッパ",
-  "Southeast Europe": "南東ヨーロッパ",
-  "North America": "北アメリカ",
-  "Central America": "中央アメリカ",
-  "South America": "南アメリカ",
-  Caribbean: "カリブ海",
-  "Eastern Africa": "東アフリカ",
-  "Western Africa": "西アフリカ",
-  "Northern Africa": "北アフリカ",
-  "Southern Africa": "南部アフリカ",
-  "Middle Africa": "中部アフリカ",
-  "Australia and New Zealand": "オーストラリア・ニュージーランド",
-  Melanesia: "メラネシア",
-  Micronesia: "ミクロネシア",
-  Polynesia: "ポリネシア",
-};
-function formatRegionJa(region: string, subregion?: string): string {
-  const regionJa = REGION_JA[region] ?? region;
-  if (subregion && subregion.trim()) {
-    const subJa = SUBREGION_JA[subregion] ?? subregion;
-    return `${regionJa}（${subJa}）`;
-  }
-  return regionJa;
 }
 
 /** GDP（十億USD）を日本円で表記する（1USD=150円で換算） */
@@ -492,7 +445,6 @@ export function PortChartClient() {
   const [title, setTitle] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<{ code: string; nameJa: string } | null>(null);
   const [countryInfo, setCountryInfo] = useState<CountryInfo | null>(null);
-  const [countryInfoLoading, setCountryInfoLoading] = useState(false);
   /** 日本中心のピクセル位置（依存の中心オーバーレイ用） */
   const [japanPixel, setJapanPixel] = useState<{ x: number; y: number } | null>(null);
   /** 国名・シェアラベルのピクセル位置（高緯度国では上に出ると見切れるため placement で上下を切替） */
@@ -630,40 +582,21 @@ export function PortChartClient() {
     [countriesGeojson]
   );
 
-  // 選択国の基礎情報を取得（静的な人口・GDP は countries-info.json、人口は REST Countries で補完）
+  // 選択国の基礎情報を取得（countries.json から同期で取得）
   useEffect(() => {
     if (!selectedCountry) {
       setCountryInfo(null);
       return;
     }
-    setCountryInfoLoading(true);
     const code = selectedCountry.code.toUpperCase();
-    const staticData = countriesInfo[code];
+    const d = getCountryWithStats(code);
     setCountryInfo({
-      nameJa: selectedCountry.nameJa,
+      nameJa: d?.nameJa ?? selectedCountry.nameJa,
       iso: selectedCountry.code,
-      population: typeof staticData?.population === "number" ? staticData.population : null,
-      gdp: typeof staticData?.gdp === "number" ? staticData.gdp : null,
-      region: null,
+      population: typeof d?.population === "number" ? d.population : null,
+      gdp: typeof d?.gdp === "number" ? d.gdp : null,
+      region: d?.regionJa ?? null,
     });
-    const codeLower = selectedCountry.code.toLowerCase();
-    fetch(`https://restcountries.com/v3.1/alpha/${codeLower}?fields=name,population,region,subregion`)
-      .then((res) => res.ok ? res.json() : null)
-      .then((data) => {
-        const one = Array.isArray(data) ? data[0] : data;
-        if (one && typeof one === "object") {
-          const updates: Partial<CountryInfo> = {};
-          if (typeof one.population === "number") updates.population = one.population;
-          if (typeof one.region === "string") {
-            updates.region = formatRegionJa(one.region, typeof one.subregion === "string" ? one.subregion : undefined);
-          }
-          if (Object.keys(updates).length > 0) {
-            setCountryInfo((prev) => prev ? { ...prev, ...updates } : null);
-          }
-        }
-      })
-      .catch(() => {})
-      .finally(() => setCountryInfoLoading(false));
   }, [selectedCountry?.code]);
 
   // 選択国が変わったら輸出入割合内訳を閉じる
@@ -1277,6 +1210,7 @@ export function PortChartClient() {
       const iso3 = (f.properties as { ISO_A3?: string }).ISO_A3;
       if (!iso3) return;
       const nameJa =
+        getCountryByIso3(iso3)?.nameJa ??
         shareDataRef.current?.find((d) => d.country_code === iso3)?.country ??
         (f.properties as { NAME?: string }).NAME ??
         iso3;
@@ -1953,7 +1887,7 @@ export function PortChartClient() {
                 <div>
                   <dt className="text-slate-500">人口</dt>
                   <dd className="text-slate-800">
-                    {countryInfoLoading ? "—" : countryInfo?.population != null ? formatPopulationJa(countryInfo.population) : "—"}
+                    {countryInfo?.population != null ? formatPopulationJa(countryInfo.population) : "—"}
                   </dd>
                 </div>
                 <div>

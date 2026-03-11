@@ -11,21 +11,9 @@ import {
   Cell,
 } from "recharts";
 import { getIso2FromIso3, getIso3FromIso2 } from "../../lib/countryFlags";
+import { getIso3ByNameJa } from "../../lib/countries";
 
 const BAR_COLORS = ["#64748b", "#94a3b8", "#cbd5e1", "#e2e8f0", "#f1f5f9"];
-
-/** 国名（日本語）→ ISO3。静的データ・CSV用フォールバック */
-const NAME_TO_ISO3: Record<string, string> = {
-  中国: "CHN", オーストラリア: "AUS", ロシア: "RUS", カナダ: "CAN", アメリカ: "USA",
-  スイス: "CHE", 南アフリカ: "ZAF", "南アフリカ共和国": "ZAF", ペルー: "PER", メキシコ: "MEX", チリ: "CHL",
-  ボリビア: "BOL", インドネシア: "IDN", マレーシア: "MYS", フィリピン: "PHL",
-  タイ: "THA", ベトナム: "VNM", インド: "IND", ブラジル: "BRA", アルゼンチン: "ARG",
-  コロンビア: "COL", エクアドル: "ECU", コンゴ民主共和国: "COD", ザンビア: "ZMB",
-  ガーナ: "GHA", コートジボワール: "CIV", 日本: "JPN", 韓国: "KOR", オランダ: "NLD",
-  ドイツ: "DEU", イギリス: "GBR", フランス: "FRA", イタリア: "ITA", ベルギー: "BEL",
-  中華人民共和国: "CHN", アメリカ合衆国: "USA", サウジアラビア: "SAU",
-  カタール: "QAT", アラブ首長国連邦: "ARE", クウェート: "KWT",
-};
 
 export type ShareItem = { country: string; value: number; country_code?: string };
 
@@ -52,7 +40,7 @@ interface ShareChartProps {
 function getIso3ForCountry(name: string, countryCode?: string): string | null {
   if (countryCode && countryCode.length === 3) return countryCode.toUpperCase();
   if (countryCode && countryCode.length === 2) return getIso3FromIso2(countryCode);
-  return NAME_TO_ISO3[name] ?? null;
+  return getIso3ByNameJa(name);
 }
 
 type TickProps = {
