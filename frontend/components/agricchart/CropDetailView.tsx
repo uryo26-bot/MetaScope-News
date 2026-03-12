@@ -126,6 +126,7 @@ export function CropDetailView({ crop }: { crop: Crop }) {
               key={`import-${dataYear}`}
               title={importShareLoading ? "日本の輸入元割合（読み込み中）" : `日本の輸入元割合（${dataYear}年）`}
               data={japanImportData}
+              collapsible
               action={
                 <Link
                   href={`/portchart?chart=agrichart&id=${encodeURIComponent(crop.id)}&year=${dataYear}&type=import`}

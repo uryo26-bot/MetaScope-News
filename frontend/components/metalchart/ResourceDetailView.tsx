@@ -108,6 +108,7 @@ export function ResourceDetailView({ resource }: { resource: Resource }) {
               key={`import-${dataYear}`}
               title={importShareLoading ? "日本の輸入元割合（読み込み中）" : `日本の輸入元割合（${dataYear}年）`}
               data={japanImportData}
+              collapsible
               action={
                 <Link
                   href={`/portchart?chart=metalchart&id=${encodeURIComponent(resource.id)}&year=${dataYear}&type=import`}

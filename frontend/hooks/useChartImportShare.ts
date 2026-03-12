@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export type ShareItem = { country: string; value: number; country_code?: string };
 
 function useChartShare(
-  chartType: "metalchart" | "agrichart",
+  chartType: "metalchart" | "agrichart" | "enechart",
   id: string | undefined,
   year: number,
   type: "import" | "production"
@@ -41,7 +41,7 @@ function useChartShare(
 
 /** 日本の輸入元割合（CSV 由来・年度指定） */
 export function useChartImportShare(
-  chartType: "metalchart" | "agrichart",
+  chartType: "metalchart" | "agrichart" | "enechart",
   id: string | undefined,
   year: number = 2024
 ) {
