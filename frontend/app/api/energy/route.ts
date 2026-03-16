@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { PATHS } from "../../../lib/dataPaths";
 
 type EnergyRecord = {
   energy: string;
@@ -8,7 +9,7 @@ type EnergyRecord = {
   percentage: number;
 };
 
-// 電源割合CSV: backend/data/energy_mix_percentage.csv をパースしてEnergyRecord配列に変換
+// 電源割合CSV をパースしてEnergyRecord配列に変換
 function parseCsv(csv: string): EnergyRecord[] {
   const lines = csv.trim().split(/\r?\n/);
   const [, ...rows] = lines; // ヘッダー除去
@@ -23,13 +24,10 @@ function parseCsv(csv: string): EnergyRecord[] {
     .filter((r) => r.energy && !Number.isNaN(r.year) && !Number.isNaN(r.percentage));
 }
 
-// backend/data/energy_mix_percentage.csv を参照
-// - Vercel (Root=frontend): トレースされたファイルは cwd/../backend 付近に配置される
-// - ローカル: cwd が frontend またはリポジトリルートのどちらでも可
-const CSV_NAME = "energy_mix_percentage.csv";
+// Vercel (frontend) / ローカル両対応
 const CANDIDATES = [
-  path.join(process.cwd(), "..", "backend", "data", "EneChart", CSV_NAME), // Vercel / frontend から実行時
-  path.join(process.cwd(), "backend", "data", "EneChart", CSV_NAME), // リポジトリルートから実行時
+  path.join(process.cwd(), "..", PATHS.energyMix),
+  path.join(process.cwd(), PATHS.energyMix),
 ];
 
 export async function GET() {

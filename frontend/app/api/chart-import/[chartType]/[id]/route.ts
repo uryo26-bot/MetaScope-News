@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { PATHS } from "../../../../../lib/dataPaths";
 
 /** resource/crop id → CSV filename (import: 日本の輸入元 / production: 世界の生産国) */
 const METALCHART_IMPORT: Record<string, string> = {
@@ -205,7 +206,7 @@ export async function GET(
 
     if (isEne && dataType === "production" && ENECHART_PRODUCTION[idLower]) {
       const filename = ENECHART_PRODUCTION[idLower];
-      const dataDir = path.join("backend", "data", "EneChart", "World_export", "extractedData_AFpercentage");
+      const dataDir = PATHS.enechartWorldExportShare;
       const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
       const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
       let csvPath: string;
@@ -227,7 +228,7 @@ export async function GET(
 
     if (isEne && dataType === "import" && ENECHART_IMPORT[idLower]) {
       const filename = ENECHART_IMPORT[idLower];
-      const dataDir = path.join("backend", "data", "EneChart", "Japan_import", "extractedData_AFpercentage");
+      const dataDir = PATHS.enechartJapanImportShare;
       const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
       const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
       let csvPath: string;
@@ -265,8 +266,14 @@ export async function GET(
     }
 
     const filename = fileMap[idLower];
-    const subFolder = useProduction ? "production" : "import";
-    const dataDir = path.join("backend", "data", dirName, subFolder);
+    const dataDir =
+      dirName === "MetalChart"
+        ? useProduction
+          ? PATHS.metalchartProduction
+          : PATHS.metalchartImport
+        : useProduction
+          ? PATHS.agricchartProduction
+          : PATHS.agricchartImport;
     const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
     const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
 

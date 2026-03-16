@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { PATHS } from "../../../../../lib/dataPaths";
 
 const METALCHART_PRODUCTION: Record<string, string> = {
   gold: "Gold_production.csv",
@@ -60,7 +61,7 @@ function parseCsvRowForVolume(header: string[], cols: string[]): { year: number;
 async function getJapanProductionVolume(id: string, year: number): Promise<number> {
   const filename = METALCHART_PRODUCTION[id];
   if (!filename) return 0;
-  const dataDir = path.join("backend", "data", "MetalChart", "production");
+  const dataDir = PATHS.metalchartProduction;
   const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
   const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
   let csvPath: string;
@@ -91,7 +92,7 @@ async function getJapanProductionVolume(id: string, year: number): Promise<numbe
 async function getJapanImportTotalVolume(id: string, year: number): Promise<number> {
   const filename = METALCHART_IMPORT[id];
   if (!filename) return 0;
-  const dataDir = path.join("backend", "data", "MetalChart", "import");
+  const dataDir = PATHS.metalchartImport;
   const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
   const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
   let csvPath: string;

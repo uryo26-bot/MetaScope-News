@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
+import { PATHS } from "../../../../lib/dataPaths";
 
 const SOURCE_TO_FILENAME: Record<string, string> = {
   lng: "Natural_Gas_import.csv",
   coal: "Coal_Fuel_import.csv",
   oil: "Oil_Fuel_import.csv",
 };
-
-const IMPORT_AF_RELATIVE = path.join("backend", "data", "EneChart", "Japan_import", "extractedData_AFpercentage");
 
 type ImportRow = { country: string; percentage: number; countryCode: string };
 
@@ -59,8 +58,9 @@ export async function GET(
     }
 
     const base = process.cwd();
-    const pathFromRoot = path.join(base, IMPORT_AF_RELATIVE, filename);
-    const pathFromFrontend = path.join(base, "..", IMPORT_AF_RELATIVE, filename);
+    const dir = PATHS.enechartJapanImportShare;
+    const pathFromRoot = path.join(base, dir, filename);
+    const pathFromFrontend = path.join(base, "..", dir, filename);
     let csvPath: string;
     try {
       await fs.access(pathFromRoot);
