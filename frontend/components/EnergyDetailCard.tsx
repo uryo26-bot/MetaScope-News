@@ -7,7 +7,7 @@ import { X, DollarSign, Activity, Leaf } from "lucide-react";
 type ExpandedMetric = "cost" | "stability" | "environmental" | null;
 import { EnergyType } from "../types/types";
 import { ENERGY_DETAILS, ENERGY_NAMES, ENERGY_COLORS } from "../constants/energyDetails";
-import { useChartImportShare } from "../hooks/useChartImportShare";
+import { useChartImportShare, useChartProductionShare } from "../hooks/useChartImportShare";
 import { ShareChart } from "./metalchart/ShareChart";
 import { FuriganaText } from "./Furigana";
 
@@ -44,6 +44,11 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
   const { data: importShareData, loading: importShareLoading } = useChartImportShare(
     "enechart",
     hasImportData ? energyType : undefined,
+    dataYear
+  );
+  const { data: productionShareData, loading: productionShareLoading } = useChartProductionShare(
+    "enechart",
+    energyType === "lng" ? "lng" : undefined,
     dataYear
   );
   // APIデータが空の場合は静的データ（ENERGY_DETAILS）をフォールバック
@@ -169,17 +174,41 @@ export function EnergyDetailCard({ energyType, year, onClose, furiganaEnabled }:
           </label>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* 世界の産出国割合：電源のため該当なし */}
-          <div className="bg-gray-100 rounded-2xl shadow-md p-6 flex flex-col justify-center min-h-[300px]">
-            <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wide mb-4">
-              <FuriganaText enabled={furiganaEnabled}>世界の産出国割合</FuriganaText>
-            </h3>
-            <p className="text-slate-600 text-sm">
-              <FuriganaText enabled={furiganaEnabled}>
-                電源のため、世界の産出国割合は該当しません。
-              </FuriganaText>
-            </p>
-          </div>
+          {/* 天然ガス生産量（LNG輸出MTOE）※lngのみ */}
+          {energyType === "lng" ? (
+            <ShareChart
+              key={`production-${dataYear}`}
+              title={
+                productionShareLoading
+                  ? "世界の輸出量割合（読み込み中）"
+                  : `世界の輸出量割合（${dataYear}年）`
+              }
+              data={productionShareData}
+              variant="enechart"
+              accentColor={color}
+              collapsible
+              powerStyleBar
+              action={
+                <Link
+                  href={`/portchart?chart=enechart&id=lng&year=${dataYear}&type=production`}
+                  className="px-3 py-1.5 rounded-lg bg-slate-700 text-white text-xs font-bold hover:bg-slate-600 transition-colors whitespace-nowrap"
+                >
+                  PortChartへ（産出国）
+                </Link>
+              }
+            />
+          ) : (
+            <div className="bg-gray-100 rounded-2xl shadow-md p-6 flex flex-col justify-center min-h-[300px]">
+              <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wide mb-4">
+                <FuriganaText enabled={furiganaEnabled}>世界の産出国割合</FuriganaText>
+              </h3>
+              <p className="text-slate-600 text-sm">
+                <FuriganaText enabled={furiganaEnabled}>
+                  電源のため、世界の産出国割合は該当しません。
+                </FuriganaText>
+              </p>
+            </div>
+          )}
 
           {/* 日本の輸入元割合 */}
           {hasImportData ? (

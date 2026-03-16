@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   },
   // Vercel デプロイ時に backend/data を API のバンドルに含める（path は project root = frontend からの相対）
   outputFileTracingIncludes: {
-    "/api/energy": ["../backend/data/energy_mix_percentage.csv"],
+    "/api/energy": ["../backend/data/EneChart/energy_mix_percentage.csv"],
   },
 };
 

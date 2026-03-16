@@ -32,7 +32,7 @@ app.add_middleware(
 # ===== パス =====
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
-CSV_PATH = DATA_DIR / "energy_mix_percentage.csv"
+CSV_PATH = DATA_DIR / "EneChart" / "energy_mix_percentage.csv"
 
 # ===== CSV =====
 generation_df = pd.read_csv(CSV_PATH)
@@ -46,7 +46,7 @@ def get_energy(year: int | None = None):
 
 
 # 石炭・石油・天然ガスの輸入元割合: extractedData_AFpercentage のCSVを使用
-IMPORT_AF_DIR = DATA_DIR / "importdata" / "extractedData_AFpercentage"
+IMPORT_AF_DIR = DATA_DIR / "EneChart" / "Japan_import" / "extractedData_AFpercentage"
 SOURCE_TO_FILENAME = {
     "lng": "Natural_Gas_import.csv",
     "coal": "Coal_Fuel_import.csv",

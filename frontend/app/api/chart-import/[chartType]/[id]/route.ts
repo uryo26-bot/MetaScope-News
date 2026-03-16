@@ -38,6 +38,11 @@ const ENECHART_IMPORT: Record<string, string> = {
   oil: "Oil_Fuel_import.csv",
 };
 
+/** EneChart: 天然ガス産出国割合（LNG_export_AFpercentage） */
+const ENECHART_PRODUCTION: Record<string, string> = {
+  lng: "LNG_export_AFpercentage.csv",
+};
+
 export type ImportShareItem = { country: string; value: number; country_code?: string };
 
 function parseImportCsv(csv: string, year: number): ImportShareItem[] {
@@ -109,6 +114,70 @@ function parseEnechartImportCsv(csv: string, year: number): ImportShareItem[] {
     .sort((a, b) => b.value - a.value);
 }
 
+/** ISO3 → 日本語国名（countries.json） */
+let countriesNameJa: Record<string, string> | null = null;
+async function getCountryNameJa(iso3: string): Promise<string | null> {
+  if (!countriesNameJa) {
+    try {
+      const candidates = [
+        path.join(process.cwd(), "data", "countries.json"),
+        path.join(process.cwd(), "frontend", "data", "countries.json"),
+      ];
+      let raw: string | null = null;
+      for (const p of candidates) {
+        try {
+          raw = await fs.readFile(p, "utf-8");
+          break;
+        } catch {
+          /* try next */
+        }
+      }
+      if (!raw) throw new Error("countries.json not found");
+      const data = JSON.parse(raw) as Record<string, { nameJa?: string }>;
+      countriesNameJa = {};
+      for (const [k, v] of Object.entries(data)) {
+        if (v && typeof v === "object" && "nameJa" in v) countriesNameJa[k] = (v as { nameJa: string }).nameJa;
+      }
+    } catch {
+      countriesNameJa = {};
+    }
+  }
+  return countriesNameJa[iso3] ?? null;
+}
+
+/** LNG産出国割合CSV解析（LNG_export_AFpercentage: 国名, ISOコード, 年度, volume_percentage） */
+async function parseLngExportAfCsv(
+  csv: string,
+  year: number
+): Promise<ImportShareItem[]> {
+  const lines = csv.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const header = lines[0].split(",").map((h) => h.trim());
+  const colName = header.indexOf("国名");
+  const colIso = header.indexOf("ISOコード");
+  const colYear = header.indexOf("年度");
+  const colPct = header.indexOf("volume_percentage");
+  if (colName === -1 || colIso === -1 || colYear === -1 || colPct === -1) return [];
+
+  const rows: ImportShareItem[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(",").map((c) => c.trim());
+    const rowYear = Number(cols[colYear]);
+    if (rowYear !== year) continue;
+    const pct = Number(cols[colPct]);
+    if (Number.isNaN(pct) || pct <= 0) continue;
+    const countryEn = cols[colName] ?? "";
+    const iso3 = (cols[colIso] ?? "").toUpperCase();
+    const nameJa = await getCountryNameJa(iso3);
+    rows.push({
+      country: nameJa ?? countryEn,
+      value: Math.round(pct * 100) / 100,
+      country_code: iso3 || undefined,
+    });
+  }
+  return rows.sort((a, b) => b.value - a.value);
+}
+
 /** 2文字国コード → ISO 3文字（Natural Earth 用） */
 const ISO2_TO_3: Record<string, string> = {
   AU: "AUS", MY: "MYS", QA: "QAT", RU: "RUS", AE: "ARE", SA: "SAU", KW: "KWT", ID: "IDN",
@@ -134,9 +203,31 @@ export async function GET(
     const useProduction = dataType === "production";
     const year = Number(url.searchParams.get("year")) || 2024;
 
+    if (isEne && dataType === "production" && ENECHART_PRODUCTION[idLower]) {
+      const filename = ENECHART_PRODUCTION[idLower];
+      const dataDir = path.join("backend", "data", "EneChart", "World_export", "extractedData_AFpercentage");
+      const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
+      const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
+      let csvPath: string;
+      try {
+        await fs.access(csvPathFromCwd);
+        csvPath = csvPathFromCwd;
+      } catch {
+        try {
+          await fs.access(csvPathFromFrontend);
+          csvPath = csvPathFromFrontend;
+        } catch {
+          return NextResponse.json([], { status: 200 });
+        }
+      }
+      const csv = await fs.readFile(csvPath, "utf-8");
+      const data = await parseLngExportAfCsv(csv, year);
+      return NextResponse.json(data, { status: 200 });
+    }
+
     if (isEne && dataType === "import" && ENECHART_IMPORT[idLower]) {
       const filename = ENECHART_IMPORT[idLower];
-      const dataDir = path.join("backend", "data", "importdata", "extractedData_AFpercentage");
+      const dataDir = path.join("backend", "data", "EneChart", "Japan_import", "extractedData_AFpercentage");
       const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
       const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
       let csvPath: string;
@@ -167,7 +258,7 @@ export async function GET(
       : isAgri
         ? (useProduction ? AGRICHART_PRODUCTION : AGRICHART_IMPORT)
         : null;
-    const dirName = isMetal ? "metalchart" : isAgri ? "agrichart" : null;
+    const dirName = isMetal ? "MetalChart" : isAgri ? "AgriChart" : null;
 
     if (!fileMap || !dirName || !fileMap[idLower]) {
       return NextResponse.json([], { status: 200 });
@@ -175,7 +266,7 @@ export async function GET(
 
     const filename = fileMap[idLower];
     const subFolder = useProduction ? "production" : "import";
-    const dataDir = path.join("backend", "data", "importdata", dirName, subFolder);
+    const dataDir = path.join("backend", "data", dirName, subFolder);
     const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
     const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
 

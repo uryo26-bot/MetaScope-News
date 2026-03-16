@@ -84,7 +84,11 @@ export function EneChart({ energyData, furiganaEnabled }: EneChartProps) {
       </div>
 
       {/* 棒グラフ */}
-      <div className="bg-white rounded-xl p-8 border-4 border-blue-500 shadow-lg mb-8">
+      <div className="bg-white rounded-xl p-8 border-4 border-blue-500 shadow-lg mb-8 relative">
+        {/* 出自表示（左上） */}
+        <p className="absolute top-4 left-4 text-xs text-slate-500">
+          財務省貿易統計（2010-2024）より
+        </p>
         {/* タイトル（年度スライダーの上） */}
         <h1 className="text-4xl font-bold mb-6 text-center text-slate-800">
           <FuriganaText enabled={furiganaEnabled}>{selectedYear}年 日本の電源割合</FuriganaText>

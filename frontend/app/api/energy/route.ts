@@ -28,8 +28,8 @@ function parseCsv(csv: string): EnergyRecord[] {
 // - ローカル: cwd が frontend またはリポジトリルートのどちらでも可
 const CSV_NAME = "energy_mix_percentage.csv";
 const CANDIDATES = [
-  path.join(process.cwd(), "..", "backend", "data", CSV_NAME), // Vercel / frontend から実行時
-  path.join(process.cwd(), "backend", "data", CSV_NAME), // リポジトリルートから実行時
+  path.join(process.cwd(), "..", "backend", "data", "EneChart", CSV_NAME), // Vercel / frontend から実行時
+  path.join(process.cwd(), "backend", "data", "EneChart", CSV_NAME), // リポジトリルートから実行時
 ];
 
 export async function GET() {

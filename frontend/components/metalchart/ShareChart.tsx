@@ -40,6 +40,8 @@ interface ShareChartProps {
   collapsible?: boolean;
   /** 電源割合と同じ横棒グラフ形式で表示（EneChart用） */
   powerStyleBar?: boolean;
+  /** 値の単位。"mtoe"の場合、棒は最大値に対してスケールし、ラベルは "X MTOE" */
+  valueUnit?: "percent" | "mtoe";
 }
 
 function getIso3ForCountry(name: string, countryCode?: string): string | null {
@@ -107,6 +109,7 @@ export function ShareChart({
   accentColor,
   collapsible = false,
   powerStyleBar = false,
+  valueUnit = "percent",
 }: ShareChartProps) {
   const [showWheelView, setShowWheelView] = useState(false);
 
@@ -160,9 +163,16 @@ export function ShareChart({
           <>
             <div className="space-y-2">
               {(showWheelView ? fullChartData : chartData).map((entry, index) => {
-                const value = entry.value ?? 0;
+                const rawValue = entry.value ?? 0;
+                const displayData = showWheelView ? fullChartData : chartData;
+                const maxVal = valueUnit === "mtoe" && displayData.length > 0
+                  ? Math.max(...displayData.map((d) => d.value ?? 0))
+                  : 100;
+                const value = valueUnit === "mtoe" ? (maxVal > 0 ? (rawValue / maxVal) * 100 : 0) : rawValue;
                 const showPercentageInside = value >= 5;
-                const percentageDisplay = Math.round(value * 10) / 10;
+                const percentageDisplay = valueUnit === "mtoe"
+                  ? Math.round(rawValue * 10) / 10
+                  : Math.round(rawValue * 10) / 10;
                 const iso3 = getIso3ForCountry(entry.name, entry.country_code);
                 const iso2 = iso3 ? getIso2FromIso3(iso3) : null;
 
@@ -202,17 +212,19 @@ export function ShareChart({
                         }}
                       >
                         {showPercentageInside && (
-                          <span className="text-white font-semibold text-xs ml-2">{percentageDisplay}%</span>
+                          <span className="text-white font-semibold text-xs ml-2">
+                            {valueUnit === "mtoe" ? `${percentageDisplay} MTOE` : `${percentageDisplay}%`}
+                          </span>
                         )}
                       </div>
                       {!showPercentageInside && (
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 font-semibold text-xs text-slate-800">
-                          {percentageDisplay}%
+                          {valueUnit === "mtoe" ? `${percentageDisplay} MTOE` : `${percentageDisplay}%`}
                         </span>
                       )}
                     </div>
-                    <div className="w-12 text-right font-semibold text-xs text-slate-800 shrink-0">
-                      {percentageDisplay}%
+                    <div className={`text-right font-semibold text-xs text-slate-800 shrink-0 ${valueUnit === "mtoe" ? "w-20 min-w-[4rem]" : "w-12"}`}>
+                      {valueUnit === "mtoe" ? `${percentageDisplay} MTOE` : `${percentageDisplay}%`}
                     </div>
                   </div>
                 );

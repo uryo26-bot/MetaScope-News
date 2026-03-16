@@ -60,7 +60,7 @@ function parseCsvRowForVolume(header: string[], cols: string[]): { year: number;
 async function getJapanProductionVolume(id: string, year: number): Promise<number> {
   const filename = METALCHART_PRODUCTION[id];
   if (!filename) return 0;
-  const dataDir = path.join("backend", "data", "importdata", "metalchart", "production");
+  const dataDir = path.join("backend", "data", "MetalChart", "production");
   const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
   const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
   let csvPath: string;
@@ -91,7 +91,7 @@ async function getJapanProductionVolume(id: string, year: number): Promise<numbe
 async function getJapanImportTotalVolume(id: string, year: number): Promise<number> {
   const filename = METALCHART_IMPORT[id];
   if (!filename) return 0;
-  const dataDir = path.join("backend", "data", "importdata", "metalchart", "import");
+  const dataDir = path.join("backend", "data", "MetalChart", "import");
   const csvPathFromCwd = path.join(process.cwd(), dataDir, filename);
   const csvPathFromFrontend = path.join(process.cwd(), "..", dataDir, filename);
   let csvPath: string;

@@ -48,9 +48,9 @@ export function useChartImportShare(
   return useChartShare(chartType, id, year, "import");
 }
 
-/** 世界の生産国割合（CSV 由来・年度指定） */
+/** 世界の生産国割合（CSV 由来・年度指定）。EneChart の場合は LNG 生産量（MTOE） */
 export function useChartProductionShare(
-  chartType: "metalchart" | "agrichart",
+  chartType: "metalchart" | "agrichart" | "enechart",
   id: string | undefined,
   year: number = 2024
 ) {

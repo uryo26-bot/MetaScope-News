@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Generate 2010-2025 dummy data. Writes to importdata/metalchart/ and importdata/agrichart/."""
+"""Generate 2010-2025 dummy data. Writes to MetalChart/ and AgriChart/."""
 import os
 import csv
 
 HEADER = "year,resource,parent_resource,country_code,country,volume,volume_unit,volume_percentage,value,value_unit,value_percentage,source"
 YEARS = list(range(2010, 2026))  # 2010 to 2025
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BASE_DIR = os.path.normpath(os.path.join(SCRIPT_DIR, ".."))  # importdata
+BASE_DIR = os.path.normpath(os.path.join(SCRIPT_DIR, ".."))  # data
 
 def trend(year, base_vol, base_val, country_index, num_countries):
     """
@@ -21,7 +21,7 @@ def trend(year, base_vol, base_val, country_index, num_countries):
     val = int(base_val * f * drift)
     return max(1, vol), max(1, val)
 
-def write_csv(filename, resource, parent, rows_by_country, source="MetalChart_AgriChart_Dummy", subdir="metalchart"):
+def write_csv(filename, resource, parent, rows_by_country, source="MetalChart_AgriChart_Dummy", subdir="MetalChart"):
     # rows_by_country: list of (country_code, country_ja, base_volume, base_value)
     out_dir = os.path.join(BASE_DIR, subdir)
     os.makedirs(out_dir, exist_ok=True)
@@ -497,13 +497,13 @@ AGRI_PRODUCTION = [
 
 if __name__ == "__main__":
     for filename, resource, parent, rows in METAL:
-        write_csv(filename, resource, parent, rows, subdir="metalchart/import")
+        write_csv(filename, resource, parent, rows, subdir="MetalChart/import")
     for item in AGRI:
         filename, resource, parent, rows, source = item
-        write_csv(filename, resource, parent, rows, source, subdir="agrichart/import")
+        write_csv(filename, resource, parent, rows, source, subdir="AgriChart/import")
     for filename, resource, parent, rows in METAL_PRODUCTION:
-        write_csv(filename, resource, parent, rows, subdir="metalchart/production")
+        write_csv(filename, resource, parent, rows, subdir="MetalChart/production")
     for item in AGRI_PRODUCTION:
         filename, resource, parent, rows, source = item
-        write_csv(filename, resource, parent, rows, source, subdir="agrichart/production")
-    print("Done. 2010-2025 data written to metalchart/import, metalchart/production, agrichart/import, agrichart/production.")
+        write_csv(filename, resource, parent, rows, source, subdir="AgriChart/production")
+    print("Done. 2010-2025 data written to MetalChart/import, MetalChart/production, AgriChart/import, AgriChart/production.")

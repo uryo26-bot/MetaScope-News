@@ -8,7 +8,7 @@ const SOURCE_TO_FILENAME: Record<string, string> = {
   oil: "Oil_Fuel_import.csv",
 };
 
-const IMPORT_AF_RELATIVE = path.join("backend", "data", "importdata", "extractedData_AFpercentage");
+const IMPORT_AF_RELATIVE = path.join("backend", "data", "EneChart", "Japan_import", "extractedData_AFpercentage");
 
 type ImportRow = { country: string; percentage: number; countryCode: string };
 

@@ -1,11 +1,11 @@
 import pandas as pd
 from pathlib import Path
 
-# ===== 基準ディレクトリ =====
-BASE_DIR = Path(__file__).resolve().parent.parent
+# ===== 基準ディレクトリ（importdata）=====
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
-INPUT_DIR = BASE_DIR / "extractedData_BFpercentage"
-OUTPUT_DIR = BASE_DIR / "extractedData_AFpercentage"
+INPUT_DIR = BASE_DIR / "EneChart" / "Japan_import" / "extractedData_BFpercentage"
+OUTPUT_DIR = BASE_DIR / "EneChart" / "Japan_import" / "extractedData_AFpercentage"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 # =====資源に合わせて変更 =====

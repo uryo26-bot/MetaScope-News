@@ -2,8 +2,8 @@ import pandas as pd
 import csv
 from pathlib import Path
 
-# ===== 基準ディレクトリ =====
-BASE_DIR = Path(__file__).resolve().parent.parent
+# ===== 基準ディレクトリ（importdata）=====
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
 
 # ===== 資源別設定（Coal 用の例）=====
@@ -22,7 +22,7 @@ SOURCE = "MOF_TradeStatistics_ItemCountry"
 MASTER_DIR = BASE_DIR / "master" / RESOURCE_DIR
 COUNTRY_MASTER = BASE_DIR / "master" / "country_master.csv"
 
-OUTPUT_DIR = BASE_DIR / "extractedData_BFpercentage"
+OUTPUT_DIR = BASE_DIR / "EneChart" / "Japan_import" / "extractedData_BFpercentage"
 OUTPUT_DIR.mkdir(exist_ok=True)
 OUTPUT_CSV = OUTPUT_DIR / "Oil_Fuel_import.csv"
 

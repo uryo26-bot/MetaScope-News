@@ -17,11 +17,12 @@ dist/
 Thumbs.db
 
 # ===== ETL generated data =====
-backend/data/importdata/extractedData_AFpercentage/
-backend/data/importdata/extractedData_BFpercentage/
+backend/data/EneChart/Japan_import/extractedData_AFpercentage/
+backend/data/EneChart/Japan_import/extractedData_BFpercentage/
+backend/data/EneChart/World_export/extractedData_AFpercentage/
+backend/data/EneChart/World_export/extractedData_BFpercentage/
 
 # ===== Generated CSV (reproducible) =====
-backend/data/importdata/*_import.csv
 
 #Excelファイル
 *.xlsx
