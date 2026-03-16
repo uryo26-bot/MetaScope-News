@@ -1,47 +1,124 @@
-# EneChart
+# MetaScope
 
-## 概要
-EneChart は、日本のエネルギー構成や資源の供給プロセスを、
-初学者向けに分かりやすく可視化することを目的とした個人制作プロジェクトです。
+目の前のモノや現象を起点に、社会・産業・資源構造まで理解できる探索型アプリ。
 
-本リポジトリでは、FastAPI を用いた backend と、
-将来的に拡張可能な frontend を含めて管理しています。
+エネルギー構成、金属・農産物の輸入元・生産国、ニュース分析などを可視化し、初学者にも分かりやすく提供します。
 
-## 使用技術
-- Python 3.11
+## 機能
+
+| ページ | 説明 |
+|--------|------|
+| **EneChart** | 日本の発電構成、 LNG/石炭/石油の輸入元割合、世界のLNG産出国割合 |
+| **MetalChart** | 金属・鉱物の日本輸入元と世界生産国 |
+| **AgriChart** | 農産物の日本輸入元と世界生産国 |
+| **NewsScope** | ニュースの多角的分析（主体、視点、時系列、関連資源） |
+| **PortChart** | 資源・品目の輸入元・生産国を地図上で可視化 |
+
+## 技術スタック
+
+### Frontend
+- Next.js 16 / React 19
+- TypeScript
+- Tailwind CSS
+- Recharts / Mapbox GL / React Map GL
+- Framer Motion
+
+### Backend
 - FastAPI
-- Uvicorn
-- LangChain
-- FAISS
-- Docker
-- React（frontend）
+- Python 3.11+
+- pandas
+- LangChain / FAISS（RAG）
+- Anthropic Claude（NewsScope 分析）
 
-## セットアップ（Docker）
+## セットアップ
 
-### 1. リポジトリをクローン
+### 要件
+- Node.js 20+
+- Python 3.11+
+- npm
+
+### 1. クローン
+
 ```bash
-git clone https://github.com/uryo26-bot/EneChart_prototype.git
-cd EneChart_prototype/backend
+git clone https://github.com/<your-org>/MetaScope_news.git
+cd MetaScope_news
 ```
-### 2. 環境変数の設定
-`.env` ファイルを作成し、以下を設定してください。
+
+### 2. 依存関係のインストール
+
+```bash
+# Frontend
+cd frontend && npm install
+
+# Backend（NewsScope のAI分析を使う場合）
+cd backend && pip install -r requirements.txt
+```
+
+### 3. 環境変数
+
+プロジェクトルートまたは `frontend/` に `.env.local` を作成:
 
 ```env
-OPENAI_API_KEY=your_api_key_here
+# NewsScope 分析用（Anthropic）
+ANTHROPIC_API_KEY=your_api_key_here
 ```
 
-### 3. Docker イメージのビルド
+### 4. 開発サーバー起動
+
 ```bash
-docker build -t enechart-backend .
+# ルートから（Frontend のみ）
+npm run dev
 ```
-### 4. コンテナ起動
+
+- Frontend: http://localhost:3000
+
+NewsScope の AI 分析を使う場合は、別ターミナルで Backend を起動:
+
 ```bash
-docker run -p 8000:8000 --env-file .env enechart-backend
+cd backend
+uvicorn app:app --reload --host 0.0.0.0 --port 8000
 ```
 
-## 起動確認（最後）
-以下にアクセスすると FastAPI の Swagger UI が表示されます。
+## ビルド
 
-- http://localhost:8000/docs
+```bash
+npm run build
+npm run start
+```
 
+## プロジェクト構成
 
+```
+MetaScope_news/
+├── frontend/          # Next.js フロントエンド
+│   ├── app/           # ページ（EneChart, MetalChart, AgriChart, NewsScope, PortChart）
+│   ├── components/
+│   ├── data/          # リソース定義、国マスタ等
+│   └── lib/
+├── backend/           # FastAPI + データ・ETL
+│   ├── data/          # CSV、raw、ETL スクリプト
+│   │   ├── EneChart/  # 電源・輸入・輸出データ
+│   │   ├── MetalChart/
+│   │   ├── AgriChart/
+│   │   └── master/
+│   └── app.py
+└── package.json
+```
+
+## データ更新（ETL）
+
+### EneChart 日本輸入
+
+1. `backend/data/EneChart/Japan_import/raw/` に Excel 配置
+2. `python run_enechart_imports.py`（または `import_mof_to_bf.py` + `calc_import_percentage.py`）
+
+### EneChart 世界輸出
+
+1. `backend/data/EneChart/World_export/raw/` に MTOE 形式 CSV 配置
+2. `python run_world_export_pipeline.py`
+
+詳細は `backend/data/DATA_STRUCTURE.md` を参照してください。
+
+## ライセンス
+
+Private
